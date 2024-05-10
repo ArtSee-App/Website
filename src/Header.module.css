@@ -1,0 +1,47 @@
+/* Header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EFAC01;
+  padding: 10px 20px;
+  color: white; /* Sets default text color for all text within the header */
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  margin-right: 10px;
+  border-radius: 20%; /* Makes the logo's borders completely round */
+  border: 2px solid white; /* Adds a white border around the logo */
+}
+
+.headerRight button {
+  background: none;
+  /* Makes the background transparent */
+  border: none;
+  /* Removes the border */
+  color: inherit;
+  /* Inherits the text color from the parent, adjust as needed */
+  cursor: pointer;
+  /* Changes the cursor to a pointer to indicate it's clickable */
+  margin-left: 10px;
+  padding: 5px;
+  /* Optional: for better clickability */
+  font-size: 16px;
+  /* Optional: adjust to match your design */
+  font-family: Arial, sans-serif;
+  /* Optional: ensure it matches the rest of your text */
+  outline: none;
+  /* Removes the default focus outline */
+
+}
+
+.headerRight button:hover {
+  text-decoration: underline;
+  /* Optional: adds underline on hover to indicate interactivity */
+}
