@@ -137,7 +137,10 @@
 }
 
 .bottomLine {
-    width: 100%; /* Ensures the line spans the entire width */
-    height: 3px; /* Sets the height of the line */
-    background-color: #EFAC01; /* Uses the same yellow color used elsewhere */
+    width: 100%;
+    /* Ensures the line spans the entire width */
+    height: 3px;
+    /* Sets the height of the line */
+    background-color: #EFAC01;
+    /* Uses the same yellow color used elsewhere */
 }

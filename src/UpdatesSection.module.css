@@ -1,0 +1,120 @@
+.updatesSection {
+    background: linear-gradient(to bottom right, #EFD701, #EE6400);
+    /* Adjust the yellow shades as necessary */
+    color: #333;
+    /* Adjust the text color for good contrast */
+    width: 100%;
+    padding: 20px;
+}
+
+.headingText {
+    color: #FFFFFF;
+    /* White color */
+    font-weight: bold;
+    /* Bold text */
+    font-size: 30px;
+    /* Adjust size as needed */
+    text-align: flex-start;
+    /* Centers the text */
+    margin-left: 40px
+}
+
+.bottomLine {
+    width: 100%;
+    /* Ensures the line spans the entire width */
+    height: 3px;
+    /* Sets the height of the line */
+    background-color: white;
+    /* Uses the same yellow color used elsewhere */
+}
+
+.rectangleContainer {
+    display: flex;
+    /* Flex container to arrange children in a row */
+    justify-content: space-around;
+    /* Distributes space evenly */
+    margin-top: 40px;
+    margin-bottom: 50px;
+    /* Space below the heading */
+}
+
+.rectangleLink {
+    text-decoration: none;
+    /* Removes underline from links */
+    color: inherit;
+    /* Inherits text color from parent */
+    display: flex;
+    /* Keeps the flex layout */
+    width: 20%;
+    /* Same as rectangle width */
+}
+
+
+.rectangle {
+    background: #FFF;
+    /* White background for contrast */
+    width: 22%;
+    /* Width of each rectangle */
+    display: flex;
+    flex-direction: column;
+    /* Arranges children (image, text) vertically */
+    align-items: center;
+    /* Centers items horizontally */
+    padding: 10px;
+    /* Padding inside each rectangle */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    /* Shows a pointer cursor on hover */
+    /* Subtle shadow for depth */
+}
+
+.rectangle:hover {
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+    /* Enhanced shadow for hover effect */
+}
+
+
+.rectangleImage {
+    width: 100%;
+    /* Full width of the container */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin-bottom: 10px;
+    /* Space between image and text */
+}
+
+.rectangleText {
+    font-size: 14px;
+    text-align: center;
+    /* Center-aligns the text */
+    color: #333;
+    /* Dark color for readability */
+}
+
+.yellowText {
+    color: #EFAC01;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.viewAllUpdatesLink {
+    text-align: center;
+    /* Centers the link horizontally */
+    margin-left: 80%;
+}
+
+.viewAllUpdatesText {
+    color: white;
+    /* Same as other text for consistency */
+    text-decoration: none;
+    /* No underline normally */
+    cursor: pointer;
+    /* Pointer cursor to indicate clickable */
+    font-size: 30px;
+    /* Larger text for emphasis */
+}
+
+.viewAllUpdatesText:hover {
+    text-decoration: underline;
+    /* Underline on hover */
+}

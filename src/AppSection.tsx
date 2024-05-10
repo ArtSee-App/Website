@@ -35,7 +35,7 @@ const AppSection: React.FC = () => {
                 <span className={styles.footerDescriptionItem}>Got a question about this artwork? Ask VistaGPT directly and skip the long texts for a quick answer.</span>
                 <span className={styles.footerDescriptionItem}>Connect with artists, exhibitions, and museums. ArtVista ensures every artist is seen, bridging the gap between emerging talents and art enthusiasts.</span>
             </div>
-            <div className={styles.bottomLine}></div> 
+            <div className={styles.bottomLine}></div>
 
         </section>
     );

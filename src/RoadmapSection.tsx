@@ -50,7 +50,7 @@ const RoadmapSection: React.FC = () => {
                 </p>
             </div>
 
-            <div className={styles.bottomLine}></div> 
+            <div className={styles.bottomLine}></div>
 
 
         </section>
