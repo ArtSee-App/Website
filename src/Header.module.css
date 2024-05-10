@@ -5,7 +5,8 @@
   align-items: center;
   background-color: #EFAC01;
   padding: 10px 20px;
-  color: white; /* Sets default text color for all text within the header */
+  color: white;
+  /* Sets default text color for all text within the header */
 }
 
 .headerLeft {
@@ -16,8 +17,10 @@
 .logo {
   width: 50px;
   margin-right: 10px;
-  border-radius: 20%; /* Makes the logo's borders completely round */
-  border: 2px solid white; /* Adds a white border around the logo */
+  border-radius: 20%;
+  /* Makes the logo's borders completely round */
+  border: 2px solid white;
+  /* Adds a white border around the logo */
 }
 
 .headerRight button {
@@ -44,4 +47,9 @@
 .headerRight button:hover {
   text-decoration: underline;
   /* Optional: adds underline on hover to indicate interactivity */
+}
+
+.headerRight button:focus {
+  outline: none;
+  /* Specifically removes outline on focus */
 }

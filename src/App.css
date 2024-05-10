@@ -1,25 +1,34 @@
 /* App.css - Global styles and resets */
 
 /* Reset some basic elements */
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%; /* You can remove height if you don't want the app to take full height */
-  overflow-x: hidden; /* Prevents horizontal scroll */
+  height: 100%;
+  /* You can remove height if you don't want the app to take full height */
+  overflow-x: hidden;
+  /* Prevents horizontal scroll */
 }
 
 /* Ensure full width and more control */
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Uses full view height */
-  font-family: Arial, sans-serif; /* Example font */
+  min-height: 100vh;
+  /* Uses full view height */
+  font-family: Arial, sans-serif;
+  /* Example font */
 }
 
 /* Additional global styles */
-*, *::before, *::after {
-  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* Includes padding and border in the element's total width and height */
 }
 
 /* Your existing or additional global styles here */

@@ -1,0 +1,137 @@
+/* AppSection.module.css */
+.appSection {
+    display: flex;
+    flex-direction: column;
+    /* Changed to column to stack children vertically */
+    align-items: center;
+    justify-content: center;
+}
+
+.mainContent {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.leftContent {
+    flex: 3;
+    /* Takes up 75% of the flex container */
+    font-size: 50px;
+    /* Adjust font size as needed */
+    padding: 20px;
+}
+
+.rightContent {
+    flex: 1;
+    /* Takes up 25% of the flex container */
+    display: flex;
+    flex-direction: column;
+    /* Stacks the child elements vertically */
+    align-items: flex-start;
+    /* Aligns text to the start of the flex direction */
+    padding: 20px;
+    font-size: 18px;
+    /* Adjust font size as needed */
+}
+
+.platform {
+    display: flex;
+    align-items: center;
+}
+
+.platformLogo {
+    width: 24px;
+    /* Adjust size as needed */
+    height: 24px;
+    /* Adjust size as needed */
+    margin-right: 10px;
+    /* Space between logo and text */
+}
+
+.highlight {
+    color: #EFAC01;
+    /* Sets the color of the 'Art Companion' text to yellow */
+}
+
+.additionalImage {
+    width: 100%;
+    /* Full width of the section or adjust as needed */
+    display: block;
+    /* Ensures the image is on its own line */
+    margin-top: 20px;
+    /* Adds space between the main content and this image */
+}
+
+.footerText {
+    display: flex;
+    width: 100%;
+    /* Ensures the footer text spans the full width of the section */
+    justify-content: space-evenly;
+    /* Distributes the child elements evenly across the main axis */
+    padding: 20px 0;
+    /* Adds vertical padding for visual separation */
+}
+
+.footerItem {
+    flex: 1;
+    /* Each item will take up equal space */
+    text-align: center;
+    /* Centers text within each flex item */
+    font-size: 30px;
+    /* Adjust font size as needed */
+    font-weight: bold;
+    color: #EFAC01;
+    /* Sets the color of the 'Art Companion' text to yellow */
+}
+
+.footerDescriptionItem {
+    flex: 1;
+    /* Each item will take up equal space */
+    text-align: center;
+    /* Centers text within each flex item */
+    font-size: 20px;
+    /* Adjust font size as needed */
+    padding: 20px;
+    margin-top: -20px;
+}
+
+
+.footerDescriptionItem:first-child {
+    margin-left: 6%;
+    /* Moves the first item (Scan) slightly to the right */
+}
+
+.footerDescriptionItem:last-child {
+    margin-right: 6%;
+    /* Moves the last item (Connect) slightly to the left */
+}
+
+.footerItem:first-child {
+    margin-left: 6%;
+    /* Moves the first item (Scan) slightly to the right */
+}
+
+.footerItem:last-child {
+    margin-right: 6%;
+    /* Moves the last item (Connect) slightly to the left */
+}
+
+.soonButton {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 18px;
+    outline: none;
+}
+
+.soonButton:hover {
+    text-decoration: underline;
+}
+
+.soonButton:focus {
+    outline: none;
+    /* Specifically removes outline on focus */
+}
