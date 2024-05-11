@@ -62,9 +62,10 @@
 }
 
 .teamImage {
-    width: 300px;
-    /* Fixed width for the oval image */
-    height: 300px;
+    width: 20vw;
+    /* Width is 20% of the viewport width */
+    height: 20vw;
+    /* Height is also 20% of the viewport width to maintain aspect ratio */
     /* Fixed height for the oval image */
     border: 5px solid #EFAC01;
     /* Yellow border */
