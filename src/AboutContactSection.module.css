@@ -1,0 +1,160 @@
+.yellowText {
+    color: #EFAC01;
+    /* Customize the color as needed */
+}
+
+.bigText {
+    font-size: 30px;
+
+    /* Customize the color as needed */
+}
+
+
+.header {
+    margin-left: 3%;
+    /* Adjust the value as needed to push it more to the right */
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    margin-top: 20px;
+    /* Adds some space between the header and the new row */
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.textSection {
+    flex: 3;
+    /* Takes up 3/4 of the space */
+    /* Optional: adds some padding between the text and the image */
+    font-size: 30px;
+    margin-top: 8%;
+}
+
+.imageSection {
+    flex: 1;
+    /* Takes up 1/4 of the space */
+}
+
+.imageSection img {
+    width: 100%;
+    /* Ensures the image fills the container width, maintaining aspect ratio */
+    height: auto;
+    /* Maintains the aspect ratio of the image */
+}
+
+.teamImagesContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.teamImageContainer {
+    flex: 0 0 20%;
+    /* Each container takes up 20% of the parent container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teamImage {
+    width: 300px;
+    /* Fixed width for the oval image */
+    height: 300px;
+    /* Fixed height for the oval image */
+    border: 5px solid #EFAC01;
+    /* Yellow border */
+    border-radius: 50%;
+    /* Makes the image oval-shaped */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.teamImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the image covers the area, useful if aspect ratio varies */
+}
+
+.teamText {
+    margin-top: 10px;
+    /* Space between the image and the text */
+    text-align: center;
+    /* Centers the text below the image */
+}
+
+.contactContainer {
+    display: flex;
+    margin-top: 20px;
+    /* Adds space below the Contact Us section */
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.contactText {
+    flex: 1;
+    /* Takes up half of the space in the container */
+    font-size: 20px;
+    /* Adjust size as necessary */
+    padding-right: 20px;
+    margin-top: 7%;
+    /* Ensures some space between text and the input field area */
+}
+
+.contactForm {
+    flex: 1;
+    /* Takes up the remaining half of the space */
+    /* Light grey background, adjust color as needed */
+    /* Rounded corners for the form */
+    /* Padding inside the form area */
+    display: flex;
+    justify-content: flex-end;
+    /* Center-align the future content */
+    align-items: flex-end;
+    /* Middle-align the future content */
+    text-align: center;
+    margin-bottom: 20px;
+    /* Ensures any text inside is centered, useful for placeholders */
+}
+
+
+.inputField {
+    width: 100%;
+    /* Slightly less than full width to account for padding/margins */
+    padding: 8px;
+    /* Spacing above and below each input */
+    font-size: 16px;
+    /* Larger font size for better readability */
+    border: 2px solid #EFAC01;
+    background-color: lightgray;
+    /* Light grey border */
+    /* Slightly rounded borders for the input fields */
+}
+
+.textareaField {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #EFAC01;
+    height: 100px;
+    /* Larger height for message box */
+    resize: vertical;
+    background-color: lightgray;
+
+    /* Allows the user to resize the textarea vertically */
+}
+
+.inputHalf {
+    width: 50%;
+    /* Half width minus a little to account for padding */
+    font-size: 16px;
+    border: 2px solid #EFAC01;
+    border-radius: 4px;
+}
