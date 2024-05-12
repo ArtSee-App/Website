@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './APISection.module.css';
-import release from './assets/release.png'; // Import the image
 import { FaArrowRight } from 'react-icons/fa'; // Import the arrow icon
 import { FaCamera } from 'react-icons/fa'; // Import the camera icon
 
