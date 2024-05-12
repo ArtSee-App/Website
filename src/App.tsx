@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from './Header.tsx';
 import AppSection from './AppSection.tsx';
 import APISection from './APISection.tsx';
