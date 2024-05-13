@@ -139,6 +139,7 @@
     /* Larger font size for better readability */
     border: 2px solid #EFAC01;
     background-color: lightgray;
+    color: black;
     /* Light grey border */
     /* Slightly rounded borders for the input fields */
 }
