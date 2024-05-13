@@ -20,6 +20,7 @@
     font-size: 50px;
     /* Adjust font size as needed */
     padding: 20px;
+    color: black;
 }
 
 .rightContent {
@@ -32,6 +33,7 @@
     /* Aligns text to the start of the flex direction */
     padding: 20px;
     font-size: 18px;
+    color: black;
     /* Adjust font size as needed */
 }
 
@@ -70,6 +72,7 @@
     justify-content: space-evenly;
     /* Distributes the child elements evenly across the main axis */
     padding: 20px 0;
+    color: black;
     /* Adds vertical padding for visual separation */
 }
 

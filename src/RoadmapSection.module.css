@@ -24,6 +24,7 @@
     font-size: 30px;
     /* Adjust font size as needed */
     margin-left: 5%;
+    color: black;
 }
 
 .descriptionText {
@@ -32,7 +33,8 @@
     font-size: 30px;
     /* Adjust font size as needed */
     padding: 20px;
-    margin-left: 10%
+    margin-left: 10%;
+    color: black;
 }
 
 .highlight {
@@ -111,6 +113,7 @@
     /* Ensures text segments are evenly spaced */
     width: 100%;
     margin-top: 20px;
+    color: black;
     /* Full width */
 }
 
