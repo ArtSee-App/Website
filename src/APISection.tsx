@@ -6,10 +6,23 @@ import { FaCamera } from 'react-icons/fa'; // Import the camera icon
 const APISection: React.FC = () => {
     const [image, setImage] = useState<string | null>(null);
     const [artwork, setArtwork] = useState({ artist: '', title: '', image_url: '' });
+    const [isLoading, setIsLoading] = useState(false); // State to track loading status
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files && e.target.files[0];
         if (file) {
+            // Check for file type
+            const validTypes = ['image/jpeg', 'image/png'];
+            if (!validTypes.includes(file.type)) {
+                setErrorMessage('Invalid file type. Please upload an image (JPG or PNG).');
+                setImage(null);
+                setIsLoading(false);
+                return; // Stop further processing
+            }
+
+            setIsLoading(true);
+            setErrorMessage(''); // Clear any previous error messages
             const reader = new FileReader();
             reader.onload = (ev: ProgressEvent<FileReader>) => {
                 if (ev.target) {
@@ -27,16 +40,20 @@ const APISection: React.FC = () => {
                     body: formData,
                 });
                 const data = await response.json();
+                console.log(data);
                 if (data.result) {
                     setArtwork({
                         artist: data.result.artist,
                         title: data.result.title,
                         image_url: data.result.image_url
                     });
+                } else {
+                    setArtwork({ artist: '', title: '', image_url: '' }); // Reset artwork if no valid result
                 }
-                console.log(data);
+                setIsLoading(false);
             } catch (error) {
                 console.error('Error uploading image:', error);
+                setIsLoading(false);
             }
         }
     };
@@ -64,14 +81,17 @@ const APISection: React.FC = () => {
                 </div>
             </div>
 
-            {image && (
+            {errorMessage ? (
+                <div className={`${styles.ovalContainer} ${styles.animatedContainer}`}>
+                    <div className={styles.errorText}>{errorMessage}</div>
+                </div>
+            ) : artwork.title && artwork.artist && !isLoading ? (
                 <>
                     <div className={`${styles.sublineContainer} ${styles.animatedContainer}`}>
                         <div className={styles.sublineText}>Result</div>
                         <div className={styles.subline}></div>
                     </div>
-
-                    <div className={`${styles.ovalContainer} ${styles.animatedContainer}`}>
+                    <div className={`${styles.ovalContainer} ${styles.animatedContainer} ${styles.fadeIn}`}>
                         <div className={styles.oval}>
                             <div className={styles.ovalText}>{artwork.title}</div>
                             <div className={`${styles.ovalText} ${styles.ovalTextBold}`}>{artwork.artist}</div>
@@ -79,7 +99,21 @@ const APISection: React.FC = () => {
                         </div>
                     </div>
                 </>
+            ) : (
+                isLoading && (
+                    <>
+                        <div className={`${styles.sublineContainer} ${styles.animatedContainer}`}>
+                            <div className={styles.sublineText}>Result</div>
+                            <div className={styles.subline}></div>
+                        </div>
+
+                        <div className={`${styles.ovalContainer} ${styles.animatedContainer}`}>
+                            <div className={styles.spinner}></div>
+                        </div>
+                    </>
+                )
             )}
+
 
 
             <div className={styles.bottomLine}></div>
