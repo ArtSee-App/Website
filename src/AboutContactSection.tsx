@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './AboutContactSection.module.css';
 import about from './assets/about.png'; // Import the image
+import profile from './assets/profile.png'; // Import the image
 
 const AboutContactSection: React.FC = () => {
     return (
@@ -24,7 +25,7 @@ const AboutContactSection: React.FC = () => {
             <div className={styles.teamImagesContainer}>
                 <div className={styles.teamImageContainer}>
                     <div className={styles.teamImage}>
-                        <img src={about} alt="Team Member 1" />
+                        <img src={profile} alt="Team Member 1" />
                     </div>
                     <p className={`${styles.teamText} ${styles.yellowText} ${styles.bigText}`}>Vlad Stoenescu</p>
                     <p className={`${styles.teamText} ${styles.bigText}`}>Front-End Lead</p>
@@ -34,7 +35,7 @@ const AboutContactSection: React.FC = () => {
                 </div>
                 <div className={styles.teamImageContainer}>
                     <div className={styles.teamImage}>
-                        <img src={about} alt="Team Member 2" />
+                        <img src={profile} alt="Team Member 2" />
                     </div>
                     <p className={`${styles.teamText} ${styles.yellowText} ${styles.bigText}`}>Tunahan Sari</p>
                     <p className={`${styles.teamText} ${styles.bigText}`}>AI & ML Lead</p>
@@ -45,7 +46,7 @@ const AboutContactSection: React.FC = () => {
                 </div>
                 <div className={styles.teamImageContainer}>
                     <div className={styles.teamImage}>
-                        <img src={about} alt="Team Member 3" />
+                        <img src={profile} alt="Team Member 3" />
                     </div>
                     <p className={`${styles.teamText} ${styles.yellowText} ${styles.bigText}`}>Taylan Ozgur Aygun</p>
                     <p className={`${styles.teamText} ${styles.bigText}`}>Business Lead</p>

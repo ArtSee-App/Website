@@ -36,12 +36,6 @@
     width: 50%;
 }
 
-.textComponent {
-    margin-bottom: 10px;
-    color: black;
-    /* Adjust spacing between text components */
-}
-
 .textLarge {
     font-size: 1.5em;
     /* Larger text size */
@@ -55,6 +49,8 @@
 .textWithIcon {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    /* Ensures that items are aligned to the start */
 }
 
 .icon {
@@ -62,22 +58,25 @@
     /* Set icon color to yellow */
     margin-right: 10px;
     /* Space between the icon and text */
+    flex-shrink: 0;
+    /* Prevents the icon from shrinking */
+    width: 24px;
+    /* Fixed width of the icon */
+    height: 24px;
+    /* Fixed height of the icon */
     display: flex;
-    /* Needed to center the icon inside the circle */
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    /* Background color for the circle */
     border-radius: 50%;
-    /* Makes the background a circle */
     padding: 5px;
-    /* Padding inside the circle */
     border: 2px solid #EFAC01;
     /* Border color */
-    width: 24px;
-    /* Width of the circle */
-    height: 24px;
-    /* Height of the circle */
+}
+
+.textComponent {
+    margin-bottom: 10px;
+    color: black;
 }
 
 @keyframes fadeInDown {
@@ -179,8 +178,108 @@
     margin-top: 10px;
 }
 
-/* Add to your APISection.module.css */
-@keyframes spin {
+.ldsroller,
+.ldsroller div,
+.ldsroller div:after {
+    box-sizing: border-box;
+}
+
+.ldsroller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.ldsroller div {
+    animation: ldsroller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+
+.ldsroller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7.2px;
+    height: 7.2px;
+    border-radius: 50%;
+    background: currentColor;
+    margin: -3.6px 0 0 -3.6px;
+}
+
+.ldsroller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.ldsroller div:nth-child(1):after {
+    top: 62.62742px;
+    left: 62.62742px;
+}
+
+.ldsroller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.ldsroller div:nth-child(2):after {
+    top: 67.71281px;
+    left: 56px;
+}
+
+.ldsroller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.ldsroller div:nth-child(3):after {
+    top: 70.90963px;
+    left: 48.28221px;
+}
+
+.ldsroller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.ldsroller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+
+.ldsroller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.ldsroller div:nth-child(5):after {
+    top: 70.90963px;
+    left: 31.71779px;
+}
+
+.ldsroller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.ldsroller div:nth-child(6):after {
+    top: 67.71281px;
+    left: 24px;
+}
+
+.ldsroller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.ldsroller div:nth-child(7):after {
+    top: 62.62742px;
+    left: 17.37258px;
+}
+
+.ldsroller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.ldsroller div:nth-child(8):after {
+    top: 56px;
+    left: 12.28719px;
+}
+
+@keyframes ldsroller {
     0% {
         transform: rotate(0deg);
     }
@@ -190,15 +289,6 @@
     }
 }
 
-.spinner {
-    border: 6px solid rgba(0, 0, 0, 0.1);
-    border-top: 6px solid #3498db;
-    /* Blue color */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
-}
 
 @keyframes fadeIn {
     from {
@@ -212,4 +302,92 @@
 
 .fadeIn {
     animation: fadeIn 1s ease-out forwards;
+}
+
+
+/* Existing CSS for base styles and other components */
+
+@media (max-width: 768px) {
+    .sectionContainer {
+        flex-direction: column;
+    }
+
+    .halfWidth {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .halfWidthLeft {
+        align-items: flex-start;
+        /* Ensures left alignment for other items */
+    }
+
+    .halfWidthRight {
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Specific adjustments for large text and its container text */
+    .halfWidthLeft .textLarge,
+    .halfWidthLeft .textComponent:not(.textWithIcon) {
+        text-align: center;
+        /* Center only the title and the introductory text */
+        align-items: center;
+        /* Center alignment for flex items if needed */
+        width: 100%;
+        /* Ensures full width to allow proper centering */
+    }
+
+
+    .textWithIcon {
+        justify-content: flex-start;
+        /* Keeps icon-text groups aligned left */
+        text-align: left;
+        /* Aligns text to the left within their flex container */
+        margin-left: 3%;
+    }
+
+    .textComponent {
+        font-size: 14px;
+    }
+
+    .textLarge {
+        font-size: 18px;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .imageUploadButton {
+        padding: 8px 16px;
+    }
+
+    .oval {
+        width: 90%;
+    }
+
+    .ovalImage {
+        width: 100%;
+    }
+
+    .ldsroller {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .textComponent {
+        font-size: 12px;
+    }
+
+    .textLarge {
+        font-size: 16px;
+    }
+
+    .sublineText {
+        font-size: 14px;
+    }
 }

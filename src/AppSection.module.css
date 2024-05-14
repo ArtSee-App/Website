@@ -147,3 +147,80 @@
     background-color: #EFAC01;
     /* Uses the same yellow color used elsewhere */
 }
+
+@media (max-width: 768px) {
+    .mainContent {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .leftContent,
+    .rightContent {
+        flex: 1;
+        width: 90%;
+        /* Adjust width to better fit mobile screens */
+        text-align: center;
+    }
+
+    .leftContent {
+        font-size: 24px;
+        /* Reducing the font size significantly for better readability on smaller screens */
+    }
+
+
+    .rightContent {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        /* Changed from column to row */
+        align-items: center;
+        /* Aligns children vertically in the center */
+        justify-content: space-around;
+        /* Distributes space around items */
+        padding: 20px;
+        font-size: 18px;
+        color: black;
+    }
+
+    .platform {
+        display: flex;
+        align-items: center;
+    }
+
+    .platformLogo {
+        width: 24px;
+        height: 24px;
+    }
+
+    .soonButton {
+        font-size: 18px;
+    }
+
+
+    .additionalImage {
+        width: 100%;
+        /* Ensures image scales down to fit mobile screens */
+    }
+
+    .bottomLine {
+        margin-top: 20px;
+        /* Adds a bit of spacing above the line */
+    }
+}
+
+/* Consider even smaller devices, under 480px */
+@media (max-width: 480px) {
+
+    .leftContent,
+    .rightContent {
+        width: 95%;
+        /* Allows a bit more width for very narrow devices */
+    }
+
+    .footerItem,
+    .footerDescriptionItem {
+        font-size: 16px;
+        /* Even smaller text to fit on small screens */
+    }
+}

@@ -56,9 +56,9 @@
     border-radius: 17%;
     border: 4px solid #EFAC01;
     object-fit: cover;
-    height: 200px;
+    height: 100%;
     /* Keeps the height to maintain the oval height */
-    width: 200px;
+    width: 15%;
     /* Reduce width for a narrower appearance */
 }
 
@@ -66,6 +66,8 @@
 
 .lineWithCircles {
     position: relative;
+    display: flex;
+    /* Using flexbox to align circles */
     width: 100%;
     /* Span the full width */
     height: 5px;
@@ -74,27 +76,29 @@
     /* Yellow color */
     margin-top: 20px;
     /* Space below the images */
+    align-items: center;
+    /* Aligns children (circles) vertically center */
 }
 
 .circle {
     position: absolute;
-    top: -12px;
-    /* Adjust this value to center the circle on the line */
     width: 30px;
     height: 30px;
     background-color: #EFAC01;
     border-radius: 50%;
     border: 4px solid white;
+    transform: translateX(-50%);
+    /* Centers the circles based on their width */
 }
 
 .circle.left {
-    margin-left: 24%;
-    /* Adjust to align with the first image */
+    left: 25%;
+    /* Align to the middle of the first half */
 }
 
 .circle.right {
-    margin-left: 74%;
-    /* Adjust to align with the second image */
+    left: 75%;
+    /* Align to the middle of the second half */
 }
 
 
@@ -152,4 +156,78 @@
     background-color: #EFAC01;
     /* Uses the same yellow color used elsewhere */
     margin-top: 100px;
+}
+
+
+/* Base styles for larger screens already defined */
+
+@media (max-width: 768px) {
+    .textContainer {
+        flex-direction: column;
+        /* Stack title and description vertically on smaller screens */
+        align-items: center;
+        /* Center alignment for better readability on narrow screens */
+        text-align: center;
+        /* Ensure text is centered */
+        padding: 0 10px;
+        /* Add some padding for a better layout */
+    }
+
+    .titleText,
+    .descriptionText {
+        font-size: 20px;
+        /* Decrease font size for mobile devices */
+        margin-left: 0;
+        /* Remove left margin */
+        padding: 10px 0;
+        /* Add padding to separate title and description visually */
+        width: 100%;
+        /* Use full width for better control */
+    }
+
+    .descriptionText {
+        margin-top: 10px;
+        /* Extra space between title and description */
+    }
+
+    .textSegment {
+        font-size: 18px;
+        /* Slightly smaller than on desktop to fit more content on the screen */
+        text-align: center;
+        /* Centers the text to match the alignment of the headers */
+    }
+
+    .centerBlackText,
+    .centerText,
+    .centerGrayText {
+        font-size: 18px;
+        /* Uniform font size for all centered texts */
+    }
+
+}
+
+/* Further adjustments for very small devices */
+@media (max-width: 480px) {
+
+    .titleText,
+    .descriptionText {
+        font-size: 16px;
+        /* Further reduce font size for smaller devices */
+    }
+
+    @media (max-width: 480px) {
+        .textSegment {
+            font-size: 16px;
+            /* Further reduce the font size for very small screens */
+        }
+
+        .centerBlackText,
+        .centerText,
+        .centerGrayText {
+            font-size: 16px;
+            /* Keep uniform font size across all text types */
+        }
+
+    }
+
 }

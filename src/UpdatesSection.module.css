@@ -1,94 +1,59 @@
 .updatesSection {
     background: linear-gradient(to bottom right, #EFD701, #EE6400);
-    /* Adjust the yellow shades as necessary */
     color: #333;
-    /* Adjust the text color for good contrast */
     width: 100%;
     padding: 20px;
 }
 
 .headingText {
     color: #FFFFFF;
-    /* White color */
     font-weight: bold;
-    /* Bold text */
     font-size: 30px;
-    /* Adjust size as needed */
     text-align: flex-start;
-    /* Centers the text */
-    margin-left: 40px
+    margin-left: 40px;
 }
 
 .bottomLine {
     width: 100%;
-    /* Ensures the line spans the entire width */
     height: 3px;
-    /* Sets the height of the line */
     background-color: white;
-    /* Uses the same yellow color used elsewhere */
 }
 
 .rectangleContainer {
     display: flex;
-    /* Flex container to arrange children in a row */
+    flex-wrap: wrap;
+    /* Allows rectangles to wrap onto the next line on smaller screens */
     justify-content: space-around;
-    /* Distributes space evenly */
     margin-top: 40px;
     margin-bottom: 50px;
-    /* Space below the heading */
 }
-
-.rectangleLink {
-    text-decoration: none;
-    /* Removes underline from links */
-    color: inherit;
-    /* Inherits text color from parent */
-    display: flex;
-    /* Keeps the flex layout */
-    width: 20%;
-    /* Same as rectangle width */
-}
-
 
 .rectangle {
     background: #FFF;
-    /* White background for contrast */
     width: 22%;
-    /* Width of each rectangle */
+    /* Adjust for smaller screens */
     display: flex;
     flex-direction: column;
-    /* Arranges children (image, text) vertically */
     align-items: center;
-    /* Centers items horizontally */
     padding: 10px;
-    /* Padding inside each rectangle */
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    /* Shows a pointer cursor on hover */
-    /* Subtle shadow for depth */
 }
 
 .rectangle:hover {
     box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
-    /* Enhanced shadow for hover effect */
 }
-
 
 .rectangleImage {
     width: 100%;
-    /* Full width of the container */
     height: auto;
-    /* Maintain aspect ratio */
     margin-bottom: 10px;
-    /* Space between image and text */
 }
 
 .rectangleText {
     font-size: 14px;
     text-align: center;
-    /* Center-aligns the text */
     color: #333;
-    /* Dark color for readability */
 }
 
 .yellowText {
@@ -99,22 +64,52 @@
 
 .viewAllUpdatesLink {
     text-align: center;
-    /* Centers the link horizontally */
-    margin-left: 80%;
+    margin-left: 0;
+    /* Adjust for smaller screens */
+    width: 100%;
+    /* Full width for better accessibility */
 }
 
 .viewAllUpdatesText {
     color: white;
-    /* Same as other text for consistency */
     text-decoration: none;
-    /* No underline normally */
     cursor: pointer;
-    /* Pointer cursor to indicate clickable */
-    font-size: 30px;
-    /* Larger text for emphasis */
+    font-size: 18px;
+    /* Smaller font size for mobile */
 }
 
-.viewAllUpdatesText:hover {
-    text-decoration: underline;
-    /* Underline on hover */
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    .rectangle {
+        width: 45%;
+        /* Use 45% for better fit in smaller screens */
+        margin: 10px;
+        /* Adds more space around each rectangle */
+    }
+
+    .headingText {
+        font-size: 24px;
+        /* Smaller font size for headings */
+        text-align: center;
+        /* Center align the headings */
+        margin-left: 0;
+        /* Remove margin for center alignment */
+    }
+
+    .viewAllUpdatesText {
+        font-size: 20px;
+        /* Adjust font size for better readability on small devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .rectangle {
+        width: 90%;
+        /* Full width for very small screens */
+    }
+
+    .headingText {
+        font-size: 20px;
+        /* Even smaller for very small devices */
+    }
 }

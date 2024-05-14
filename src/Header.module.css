@@ -53,3 +53,37 @@
   outline: none;
   /* Specifically removes outline on focus */
 }
+
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .headerLeft,
+  .headerRight {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .headerRight {
+    margin-top: 10px;
+    /* Adds space between the logo and navigation buttons */
+    flex-wrap: wrap;
+    /* Allows buttons to wrap to the next line if space is insufficient */
+  }
+
+  .headerRight button {
+    margin: 5px;
+    /* Reduces margin around buttons for more compact navigation */
+    font-size: 14px;
+    /* Smaller font size to better fit smaller screens */
+  }
+
+  .logo {
+    width: 40px;
+    /* Slightly smaller logo for small screens */
+  }
+}

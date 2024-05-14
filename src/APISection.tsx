@@ -108,8 +108,7 @@ const APISection: React.FC = () => {
                         </div>
 
                         <div className={`${styles.ovalContainer} ${styles.animatedContainer}`}>
-                            <div className={styles.spinner}></div>
-                        </div>
+                            <div className={styles.ldsroller}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
                     </>
                 )
             )}

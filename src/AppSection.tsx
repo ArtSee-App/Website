@@ -3,6 +3,7 @@ import styles from './AppSection.module.css';
 import androidLogo from './assets/android.png'; // Adjust the path as needed
 import iosLogo from './assets/ios.png'; // Adjust the path as needed
 import appinfo from './assets/appinfo.png'; // Import the image
+//import app from './assets/app.png'; // Import the image
 
 const AppSection: React.FC = () => {
     return (
