@@ -108,7 +108,13 @@
     margin-right: 20px;
     /* Space between text and line */
     font-weight: bold;
+    color: black;
 }
+
+.errorText {
+    color: black;
+}
+
 
 .subline {
     flex: 1;
@@ -205,6 +211,9 @@
     border-radius: 50%;
     background: currentColor;
     margin: -3.6px 0 0 -3.6px;
+    background: black;
+    /* Light blue color */
+
 }
 
 .ldsroller div:nth-child(1) {
@@ -352,7 +361,7 @@
     }
 
     .textLarge {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .icon {
@@ -384,7 +393,7 @@
     }
 
     .textLarge {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .sublineText {

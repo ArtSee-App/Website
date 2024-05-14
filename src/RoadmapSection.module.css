@@ -173,8 +173,7 @@
         /* Add some padding for a better layout */
     }
 
-    .titleText,
-    .descriptionText {
+    .titleText {
         font-size: 20px;
         /* Decrease font size for mobile devices */
         margin-left: 0;
@@ -184,6 +183,18 @@
         width: 100%;
         /* Use full width for better control */
     }
+
+    .descriptionText {
+        font-size: 16px;
+        /* Decrease font size for mobile devices */
+        margin-left: 0;
+        /* Remove left margin */
+        padding: 10px 0;
+        /* Add padding to separate title and description visually */
+        width: 100%;
+        /* Use full width for better control */
+    }
+
 
     .descriptionText {
         margin-top: 10px;
@@ -209,10 +220,13 @@
 /* Further adjustments for very small devices */
 @media (max-width: 480px) {
 
-    .titleText,
+    .titleText {
+        font-size: 20px;
+        /* Further reduce font size for smaller devices */
+    }
+
     .descriptionText {
         font-size: 16px;
-        /* Further reduce font size for smaller devices */
     }
 
     @media (max-width: 480px) {
