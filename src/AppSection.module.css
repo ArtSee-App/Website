@@ -14,10 +14,10 @@
     align-items: center;
     /* Align items vertically */
     position: relative;
-    margin-top: 20px;
-    margin-bottom: 50px;
+    margin-top: 3%;
+    margin-bottom: 3%;
     width: 100%;
-    height: 80vh;
+    height: 40vw;
     /* Adjust as needed */
     overflow: hidden;
 }
@@ -27,7 +27,7 @@
     transition: all 0.3s ease;
     width: 20%;
     /* Adjust as needed */
-    height: 50vh;
+    height: 23vw;
     margin-bottom: 6%;
     border-radius: 10%;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
@@ -36,7 +36,7 @@
 }
 
 .artImage5 {
-    height: 80vh;
+    height: 36vw;
     /* Adjust height for image5 */
     margin-bottom: 0;
     border-radius: 5%;
@@ -50,21 +50,21 @@
     z-index: 1;
     left: calc(20%);
     transform: translateX(-50%) scale(0.8);
-    height: 35vh;
+    height: 14vw;
 }
 
 .artImage2 {
     z-index: 2;
     left: calc(25%);
     transform: translateX(-50%) scale(0.85);
-    height: 40vh;
+    height: 17vw;
 }
 
 .artImage3 {
     z-index: 3;
     left: calc(30%);
     transform: translateX(-50%) scale(0.9);
-    height: 45vh;
+    height: 20vw;
 }
 
 .artImage4 {
@@ -89,21 +89,21 @@
     z-index: 3;
     right: calc(10%);
     transform: translateX(-50%) scale(0.9);
-    height: 45vh;
+    height: 20vw;
 }
 
 .artImage8 {
     z-index: 2;
     right: calc(5%);
     transform: translateX(-50%) scale(0.85);
-    height: 40vh;
+    height: 17vw;
 }
 
 .artImage9 {
     z-index: 1;
     right: calc(0%);
     transform: translateX(-50%) scale(0.8);
-    height: 35vh;
+    height: 14vw;
 }
 
 .leftText,
