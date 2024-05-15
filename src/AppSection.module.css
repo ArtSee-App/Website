@@ -283,12 +283,12 @@
 
     .leftText,
     .rightText {
-        color: white;
+        color: transparent;
     }
 
     .leftText span,
     .rightText span {
-        color: white;
+        color: transparent;
     }
 
 
@@ -358,12 +358,12 @@
 
     .leftText,
     .rightText {
-        color: white;
+        color: transparent;
     }
 
     .leftText span,
     .rightText span {
-        color: white;
+        color: transparent;
     }
 
 
