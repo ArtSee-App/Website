@@ -25,7 +25,7 @@
 .artImage {
     position: absolute;
     transition: all 0.3s ease;
-    width: 40vh;
+    width: 20%;
     /* Adjust as needed */
     height: 50vh;
     margin-bottom: 6%;
@@ -48,28 +48,28 @@
 
 .artImage1 {
     z-index: 1;
-    left: calc(50% - 480px);
+    left: calc(20%);
     transform: translateX(-50%) scale(0.8);
     height: 35vh;
 }
 
 .artImage2 {
     z-index: 2;
-    left: calc(50% - 380px);
+    left: calc(25%);
     transform: translateX(-50%) scale(0.85);
     height: 40vh;
 }
 
 .artImage3 {
     z-index: 3;
-    left: calc(50% - 280px);
+    left: calc(30%);
     transform: translateX(-50%) scale(0.9);
     height: 45vh;
 }
 
 .artImage4 {
     z-index: 4;
-    left: calc(50% - 150px);
+    left: calc(40%);
     transform: translateX(-50%) scale(0.95);
 }
 
@@ -81,27 +81,27 @@
 
 .artImage6 {
     z-index: 4;
-    left: calc(50% + 150px);
+    right: calc(20%);
     transform: translateX(-50%) scale(0.95);
 }
 
 .artImage7 {
     z-index: 3;
-    left: calc(50% + 280px);
+    right: calc(10%);
     transform: translateX(-50%) scale(0.9);
     height: 45vh;
 }
 
 .artImage8 {
     z-index: 2;
-    left: calc(50% + 380px);
+    right: calc(5%);
     transform: translateX(-50%) scale(0.85);
     height: 40vh;
 }
 
 .artImage9 {
     z-index: 1;
-    left: calc(50% + 480px);
+    right: calc(0%);
     transform: translateX(-50%) scale(0.8);
     height: 35vh;
 }
@@ -281,15 +281,6 @@
 
 @media (max-width: 768px) {
 
-    .leftText,
-    .rightText {
-        color: transparent;
-    }
-
-    .leftText span,
-    .rightText span {
-        color: transparent;
-    }
 
 
 
@@ -356,15 +347,6 @@
 /* Consider even smaller devices, under 480px */
 @media (max-width: 480px) {
 
-    .leftText,
-    .rightText {
-        color: transparent;
-    }
-
-    .leftText span,
-    .rightText span {
-        color: transparent;
-    }
 
 
 
