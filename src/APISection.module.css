@@ -50,6 +50,23 @@
     /* Ensures that items are aligned to the start */
 }
 
+.textWithIcon a {
+    all: unset;
+    /* This removes all default styles from the link */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* Maintains the pointer cursor */
+    color: black;
+    /* Set your preferred color */
+}
+
+.textWithIcon a:hover {
+    text-decoration: underline;
+    /* Only underline on hover */
+}
+
+
 .icon {
     color: #EFAC01;
     /* Set icon color to yellow */

@@ -1,0 +1,52 @@
+.contentContainer {
+    display: flex;
+    width: 100%;
+    /* Ensures the container takes full width */
+}
+
+.leftSide {
+    flex: 1;
+    /* Each side takes half of the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Centers content vertically */
+    align-items: flex-start;
+    /* Centers content horizontally */
+    text-align: start;
+    /* Ensures text within each paragraph is centered */
+    margin-left: 3%;
+}
+
+.rightSide {
+    flex: 1;
+    /* Each side takes half of the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Centers content vertically */
+    align-items: flex-start;
+    /* Centers content horizontally */
+    text-align: start;
+    /* Ensures text within each paragraph is centered */
+    margin-left: 10%;
+
+}
+
+.bigText {
+    font-size: 2vw;
+    /* Larger font size for big text */
+    font-weight: bold;
+    /* Bold font style */
+}
+
+.smallText {
+    font-size: 1.3vw;
+    /* Smaller font size for details */
+    margin-top: 0%;
+}
+
+.highlight {
+    color: #EFAC01;
+    /* Sets the text color to yellow */
+}
