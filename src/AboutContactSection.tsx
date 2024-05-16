@@ -2,8 +2,24 @@ import React from 'react';
 import styles from './AboutContactSection.module.css';
 import about from './assets/about.png'; // Import the image
 import profile from './assets/profile.png'; // Import the image
+import emailjs from 'emailjs-com';
 
 const AboutContactSection: React.FC = () => {
+
+
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(e.currentTarget);
+        emailjs.sendForm('service_vvelitw', 'template_g834cvd', e.currentTarget, '8_g9K0LqDxKW8qCXH')
+            .then((result) => {
+                console.log(result.text);
+                alert('Message sent!');
+            }, (error) => {
+                console.log(error.text);
+                alert('Failed to send message, please try again later.');
+            });
+    };
+
     return (
         <section id="aboutcontact">
             <p className={styles.header}>
@@ -65,19 +81,19 @@ const AboutContactSection: React.FC = () => {
                     Send your message regarding the ArtVista App, Pattern Recognition API, or anything else! We will be replying to you ASAP!
                 </div>
                 <div className={styles.contactForm}>
-                    <form>
+                    <form onSubmit={sendEmail}>
                         <div className={styles.formRow}>
-                            <input type="text" placeholder="Name" className={`${styles.inputField} ${styles.inputHalf}`} />
-                            <input type="text" placeholder="Surname" className={`${styles.inputField} ${styles.inputHalf}`} />
+                            <input type="text" placeholder="Name" name="from_name" className={`${styles.inputField} ${styles.inputHalf}`} />
+                            <input type="text" placeholder="Surname" name="from_surname" className={`${styles.inputField} ${styles.inputHalf}`} />
                         </div>
                         <div className={styles.formRow}>
-                            <input type="text" placeholder="Your title (Artist, Manager, Developer, etc.)" className={styles.inputField} />
+                            <input type="text" placeholder="Your title (Artist, Manager, Developer, etc.)" name="title" className={styles.inputField} />
                         </div>
                         <div className={styles.formRow}>
-                            <input type="email" placeholder="Email" className={styles.inputField} />
+                            <input type="email" placeholder="Email" name="user_email" className={styles.inputField} />
                         </div>
                         <div className={styles.formRow}>
-                            <textarea placeholder="Your message" className={styles.textareaField}></textarea>
+                            <textarea placeholder="Your message" name="message" className={styles.textareaField}></textarea>
                         </div>
                         <button type="submit" className={styles.inputField}>Send</button>
                     </form>
