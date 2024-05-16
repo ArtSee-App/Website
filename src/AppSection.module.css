@@ -149,7 +149,7 @@
 .leftContent {
     flex: 3;
     /* Takes up 75% of the flex container */
-    font-size: 50px;
+    font-size: 3vw;
     /* Adjust font size as needed */
     padding: 20px;
     color: black;
@@ -164,7 +164,6 @@
     align-items: flex-start;
     /* Aligns text to the start of the flex direction */
     padding: 20px;
-    font-size: 18px;
     color: black;
     /* Adjust font size as needed */
 }
@@ -175,12 +174,23 @@
 }
 
 .platformLogo {
-    width: 24px;
+    width: 6%;
     /* Adjust size as needed */
-    height: 24px;
+    height: 6%;
     /* Adjust size as needed */
     /* Space between logo and text */
 }
+
+.soonButton {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 1.3vw;
+    outline: none;
+}
+
 
 .highlight {
     color: #EFAC01;
@@ -212,7 +222,7 @@
     /* Each item will take up equal space */
     text-align: center;
     /* Centers text within each flex item */
-    font-size: 30px;
+    font-size: 2vw;
     /* Adjust font size as needed */
     font-weight: bold;
     color: #EFAC01;
@@ -224,7 +234,7 @@
     /* Each item will take up equal space */
     text-align: center;
     /* Centers text within each flex item */
-    font-size: 20px;
+    font-size: 1.5vw;
     /* Adjust font size as needed */
     padding: 20px;
     margin-top: -20px;
@@ -251,15 +261,6 @@
     /* Moves the last item (Connect) slightly to the left */
 }
 
-.soonButton {
-    background: none;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    padding: 5px 10px;
-    font-size: 18px;
-    outline: none;
-}
 
 .soonButton:hover {
     text-decoration: underline;

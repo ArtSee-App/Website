@@ -20,20 +20,21 @@
 .titleText {
     flex: 1;
     /* Takes 1/4 of the row */
-    font-weight: bold;
-    font-size: 30px;
+    font-size: 2vw;
     /* Adjust font size as needed */
-    margin-left: 5%;
+    margin-left: 3%;
     color: black;
+    font-weight: bold;
 }
 
 .descriptionText {
     flex: 3;
     /* Takes 3/4 of the row */
-    font-size: 30px;
+    font-size: 2vw;
     /* Adjust font size as needed */
     padding: 20px;
     margin-left: 10%;
+    text-align: center;
     color: black;
 }
 
@@ -126,7 +127,7 @@
     /* Each text takes up equal space */
     margin: 0 20px;
     /* Adds horizontal space between the text segments */
-    font-size: 20px;
+    font-size: 1.5vw;
     /* Appropriate text size */
     text-align: justify;
     /* Justifies the text for better readability */

@@ -1,19 +1,7 @@
-.yellowText {
-    color: #EFAC01;
-    /* Customize the color as needed */
-}
-
-.bigText {
-    font-size: 30px;
-
-    /* Customize the color as needed */
-}
-
-
 .header {
     margin-left: 3%;
     /* Adjust the value as needed to push it more to the right */
-    font-size: 30px;
+    font-size: 2vw;
     font-weight: bold;
     color: black;
 }
@@ -30,7 +18,7 @@
     flex: 3;
     /* Takes up 3/4 of the space */
     /* Optional: adds some padding between the text and the image */
-    font-size: 30px;
+    font-size: 2vw;
     margin-top: 8%;
     color: black;
 }
@@ -91,21 +79,35 @@
     /* Space between the image and the text */
     text-align: center;
     color: black;
+    font-size: 1.3vw;
     /* Centers the text below the image */
+}
+
+
+.bigText {
+    font-size: 2vw;
+
+    /* Customize the color as needed */
+}
+
+
+.yellowText {
+    color: #EFAC01;
+    /* Customize the color as needed */
 }
 
 .contactContainer {
     display: flex;
     margin-top: 20px;
     /* Adds space below the Contact Us section */
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 .contactText {
     flex: 1;
     /* Takes up half of the space in the container */
-    font-size: 20px;
+    font-size: 1.5vw;
     /* Adjust size as necessary */
     padding-right: 20px;
     margin-top: 7%;
@@ -135,7 +137,7 @@
     /* Slightly less than full width to account for padding/margins */
     padding: 8px;
     /* Spacing above and below each input */
-    font-size: 16px;
+    font-size: 1.2vw;
     /* Larger font size for better readability */
     border: 2px solid #EFAC01;
     background-color: lightgray;
@@ -147,7 +149,7 @@
 .textareaField {
     width: 100%;
     padding: 8px;
-    font-size: 16px;
+    font-size: 1.2vw;
     border: 2px solid #EFAC01;
     height: 100px;
     /* Larger height for message box */
@@ -160,7 +162,7 @@
 .inputHalf {
     width: 50%;
     /* Half width minus a little to account for padding */
-    font-size: 16px;
+    font-size: 1.2vw;
     border: 2px solid #EFAC01;
     border-radius: 4px;
 }

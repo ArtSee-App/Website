@@ -8,7 +8,7 @@
 .headingText {
     color: #FFFFFF;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 2vw;
     text-align: flex-start;
     margin-left: 40px;
 }
@@ -51,7 +51,7 @@
 }
 
 .rectangleText {
-    font-size: 14px;
+    font-size: 1vw;
     text-align: center;
     color: #333;
 }
@@ -59,7 +59,7 @@
 .yellowText {
     color: #EFAC01;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.5vw;
 }
 
 .viewAllUpdatesLink {
@@ -74,7 +74,8 @@
     color: white;
     text-decoration: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 2vw;
+    ;
     /* Smaller font size for mobile */
 }
 
