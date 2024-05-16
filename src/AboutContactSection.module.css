@@ -182,6 +182,11 @@
         /* Removes right margin for full width use */
     }
 
+    .header {
+        font-size: 24px;
+    }
+
+
     .textSection,
     .contactText {
         font-size: 18px;
@@ -237,6 +242,13 @@
         margin-top: 20px;
         /* Adds space above the link */
     }
+
+    .contactForm {
+        justify-content: center;
+        /* Center-align the future content */
+        align-items: center;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -274,4 +286,16 @@
         font-size: 18px;
         /* Adjusts larger text to fit smaller screens nicely */
     }
+
+    .header {
+        font-size: 24px;
+    }
+
+    .contactForm {
+        justify-content: center;
+        /* Center-align the future content */
+        align-items: center;
+    }
+
+
 }
