@@ -37,6 +37,7 @@
     font-size: 2vw;
     /* Larger font size for big text */
     font-weight: bold;
+    color: white;
     /* Bold font style */
 }
 
@@ -44,6 +45,8 @@
     font-size: 1.3vw;
     /* Smaller font size for details */
     margin-top: 0%;
+    color: white;
+
 }
 
 .highlight {
