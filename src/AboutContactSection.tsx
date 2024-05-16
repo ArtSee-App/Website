@@ -9,8 +9,7 @@ const AboutContactSection: React.FC = () => {
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(e.currentTarget);
-        emailjs.sendForm('service_vvelitw', 'template_g834cvd', e.currentTarget, '8_g9K0LqDxKW8qCXH')
+        emailjs.sendForm('service_cplgcyh', 'template_lnrdarq', e.currentTarget, 'OxXd5GY_BMylywhHL')
             .then((result) => {
                 console.log(result.text);
                 alert('Message sent!');
@@ -83,17 +82,17 @@ const AboutContactSection: React.FC = () => {
                 <div className={styles.contactForm}>
                     <form onSubmit={sendEmail}>
                         <div className={styles.formRow}>
-                            <input type="text" placeholder="Name" name="from_name" className={`${styles.inputField} ${styles.inputHalf}`} />
-                            <input type="text" placeholder="Surname" name="from_surname" className={`${styles.inputField} ${styles.inputHalf}`} />
+                            <input type="text" placeholder="Name" name="from_name" className={`${styles.inputField} ${styles.inputHalf}`} required />
+                            <input type="text" placeholder="Surname" name="from_surname" className={`${styles.inputField} ${styles.inputHalf}`} required />
                         </div>
                         <div className={styles.formRow}>
-                            <input type="text" placeholder="Your title (Artist, Manager, Developer, etc.)" name="title" className={styles.inputField} />
+                            <input type="text" placeholder="Your title (Artist, Manager, Developer, etc.)" name="title" className={styles.inputField} required />
                         </div>
                         <div className={styles.formRow}>
-                            <input type="email" placeholder="Email" name="user_email" className={styles.inputField} />
+                            <input type="email" placeholder="Email" name="user_email" className={styles.inputField} required />
                         </div>
                         <div className={styles.formRow}>
-                            <textarea placeholder="Your message" name="message" className={styles.textareaField}></textarea>
+                            <textarea placeholder="Your message" name="message" className={styles.textareaField} required></textarea>
                         </div>
                         <button type="submit" className={styles.inputField}>Send</button>
                     </form>
