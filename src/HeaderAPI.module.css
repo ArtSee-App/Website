@@ -54,3 +54,16 @@
   outline: none;
   /* Specifically removes outline on focus */
 }
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: row;
+    height: 7vh;
+    z-index: 1000;
+  }
+
+
+  .logo {
+    width: 40px;
+  }
+}
