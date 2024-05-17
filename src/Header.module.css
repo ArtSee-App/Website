@@ -91,7 +91,6 @@
     /* Sufficient height to cover the viewport when open */
     background-color: #EFAC01;
     padding: 10px;
-    overflow-y: auto;
     z-index: 20;
     transition: top 0.5s ease;
     /* Transition for sliding down */
