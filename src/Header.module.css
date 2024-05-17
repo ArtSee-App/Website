@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   font-size: 20px;
+  z-index: 1000;
 }
 
 .logo {
@@ -60,74 +61,71 @@
   display: none;
 }
 
+.headerRight {
+  transition: right 0.5s ease;
+  /* Smooth transition for the right property */
+}
 
+.menuOpen {
+  right: 0;
+  /* Adjust right to 0 to slide into view */
+}
 
 @media (max-width: 768px) {
-
   .header {
     flex-direction: row;
-    /* Keep the header row-direction for alignment */
+    height: 7vh;
+    z-index: 1000;
   }
 
   .headerRight {
-    display: none;
-    /* Initially hide navigation buttons on mobile */
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: -100%;
+    /* Start hidden above the viewport */
+    left: 0;
+    width: 100%;
+    /* Menu occupies the full width of the viewport */
+    height: 100vh;
+    /* Sufficient height to cover the viewport when open */
+    background-color: #EFAC01;
+    padding: 10px;
+    overflow-y: auto;
+    z-index: 20;
+    transition: top 0.5s ease;
+    /* Transition for sliding down */
+  }
+
+  .menuOpen {
+    top: 0;
+    /* Slide down to show the menu */
   }
 
   .menuIcon {
     display: block;
     margin-left: auto;
-    /* Moves icon to the right */
-  }
-
-  .menuOpen {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    /* Use fixed to keep the menu in view on scroll */
-    top: 0;
-    /* Start at the top of the viewport */
-    right: 0;
-    /* Align to the right side of the viewport */
-    height: 100vh;
-    /* Extend the full height of the viewport */
-    background-color: #EFAC01;
-    padding: 10px;
-    border-radius: 0 10px 10px 0;
-    /* Rounded corners on the left side */
-    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-    /* Allows scrolling if content is longer than the screen */
+    /* Icon to the right */
     z-index: 1000;
-    /* Ensure it is above all other content */
   }
-
-
 
   .headerLeft,
   .headerRight {
-    width: 100%;
     justify-content: center;
     text-align: center;
   }
 
   .headerRight {
-    /* Adds space between the logo and navigation buttons */
-    flex-wrap: wrap;
-    /* Allows buttons to wrap to the next line if space is insufficient */
-    width: 30%;
-    margin-top: 7.6%;
+    margin-top: 0;
+    /* Adjust margin if necessary */
   }
 
   .headerRight button {
     margin: 5px;
-    /* Reduces margin around buttons for more compact navigation */
-    font-size: 14px;
-    /* Smaller font size to better fit smaller screens */
+    font-size: 20px;
   }
 
   .logo {
     width: 40px;
-    /* Slightly smaller logo for small screens */
   }
 }
