@@ -230,6 +230,7 @@
 
     .inputField,
     .textareaField {
+        font-size: 14px;
         width: 60vw;
         /* Ensures form elements use full available width */
         /* Adds space between form elements */
@@ -294,6 +295,11 @@
         justify-content: center;
         /* Center-align the future content */
         align-items: center;
+    }
+
+    .inputField,
+    .textareaField {
+        font-size: 14px;
     }
 
 
