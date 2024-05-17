@@ -380,7 +380,7 @@
     }
 
     .textComponent {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .textLarge {
@@ -408,11 +408,16 @@
         width: 60px;
         height: 60px;
     }
+
+    .apiDescription {
+        padding: 15px;
+    }
+
 }
 
 @media (max-width: 480px) {
     .textComponent {
-        font-size: 12px;
+        font-size: 16px;
     }
 
     .textLarge {
@@ -422,4 +427,9 @@
     .sublineText {
         font-size: 14px;
     }
+
+    .apiDescription {
+        padding: 15px;
+    }
+
 }

@@ -64,7 +64,7 @@ const APISection: React.FC = () => {
             <div className={styles.sectionContainer}>
                 <div className={`${styles.halfWidth} ${styles.halfWidthLeft}`}>
                     <div className={`${styles.textComponent} ${styles.textLarge}`}>Artwork Search <span className={styles.highlight}>API</span></div>
-                    <div className={styles.textComponent}>Use <span className={styles.highlight}>ArtVista’s API</span> to find art pieces similar to a given image from a vast collection. Visit the API page for benchmark results and options to use it on your data.</div>
+                    <div className={`${styles.textComponent} ${styles.apiDescription}`}>Use <span className={styles.highlight}>ArtVista’s API</span> to find art pieces similar to a given image from a vast collection. Visit the API page for benchmark results and options to use it on your data.</div>
                     <div className={`${styles.textComponent} ${styles.textWithIcon}`}>
                         <Link to="/api">
                             <FaArrowRight className={styles.icon} />Try the demo
