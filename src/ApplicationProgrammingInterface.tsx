@@ -115,7 +115,7 @@ const APIPage: React.FC = () => {
       ) : artwork.title && artwork.artist && !isLoading ? (
         <>
           <div className={`${styles.sublineContainer} ${styles.animatedContainer}`}>
-            <div className={styles.sublineText}>Result</div>
+            <div className={styles.sublineText}>Results</div>
             <div className={styles.subline}></div>
           </div>
           <div className={`${styles.ovalContainer} ${styles.animatedContainer} ${styles.fadeIn}`}>

@@ -501,7 +501,12 @@
         font-size: 16px;
         /* Smooth transition for the text decoration */
     }
-    
-    
+
+
+    .sublineText {
+        font-size: 20px;
+    }
+
+
 
 }
