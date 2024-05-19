@@ -487,6 +487,7 @@
         width: 5vw;
         /* Make icons larger for better touch target */
         height: 5vw;
+        padding: 3px;
     }
 
     .resultsHeading {
@@ -496,6 +497,7 @@
     .resultsText {
         font-size: 16px;
     }
+
 
     .infoText span {
         font-size: 16px;
