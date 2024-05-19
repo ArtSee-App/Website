@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './AboutContactSection.module.css';
 import about from './assets/about.png'; // Import the image
 import profile from './assets/profile.png'; // Import the image
@@ -6,16 +6,20 @@ import emailjs from 'emailjs-com';
 
 const AboutContactSection: React.FC = () => {
 
+    const [isSending, setIsSending] = useState(false);
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsSending(true);  // Disable the button when the email is being sent
         emailjs.sendForm('service_cplgcyh', 'template_lnrdarq', e.currentTarget, 'OxXd5GY_BMylywhHL')
             .then((result) => {
                 console.log(result.text);
                 alert('Message sent!');
+                setIsSending(false);  // Enable the button after the email is sent
             }, (error) => {
                 console.log(error.text);
                 alert('Failed to send message, please try again later.');
+                setIsSending(false);  // Enable the button if there is an error
             });
     };
 
@@ -94,7 +98,7 @@ const AboutContactSection: React.FC = () => {
                         <div className={styles.formRow}>
                             <textarea placeholder="Your message" name="message" className={styles.textareaField} required></textarea>
                         </div>
-                        <button type="submit" className={styles.inputField}>Send</button>
+                        <button type="submit" className={styles.inputField} disabled={isSending}>Send</button>
                     </form>
                 </div>
             </div>

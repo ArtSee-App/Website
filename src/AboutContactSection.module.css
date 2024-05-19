@@ -146,6 +146,15 @@
     /* Slightly rounded borders for the input fields */
 }
 
+.inputField:disabled {
+    color: gray;
+    /* Light gray text color */
+    cursor: not-allowed;
+    /* Show a 'not-allowed' cursor on hover */
+    pointer-events: none;
+    /* Make the button unclickable */
+}
+
 .textareaField {
     width: 100%;
     padding: 8px;
