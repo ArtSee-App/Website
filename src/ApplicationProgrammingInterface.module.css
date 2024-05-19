@@ -387,3 +387,32 @@
 .fadeIn {
     animation: fadeIn 1s ease-out forwards;
 }
+
+.bottomLine {
+    width: 100%;
+    /* Ensures the line spans the entire width */
+    height: 3px;
+    /* Sets the height of the line */
+    background-color: #EFAC01;
+    margin-top: 20px;
+    /* Uses the same yellow color used elsewhere */
+}
+
+.resultsContainer {
+    text-align: flex-start;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-left: 3%;
+    /* Centers the text and adds space around it */
+}
+
+.resultsHeading {
+    font-size: 2vw;
+    color: black;
+}
+
+.resultsText {
+    font-size: 1.3vw;
+    color: black;
+    /* Smaller font size for the detailed text */
+}

@@ -155,6 +155,22 @@ const APIPage: React.FC = () => {
         )
       )}
 
+      <div className={styles.bottomLine}></div>
+
+      <div className={styles.resultsContainer}>
+        <p className={styles.resultsHeading}>Results - <span className={styles.highlight}>soon to be published</span></p>
+        <p className={styles.resultsText}>The results of ArtVista’s Artwork searching models will be published soon once the research is done on the models.</p>
+      </div>
+
+
+      <div className={styles.bottomLine}></div>
+
+
+      <div className={styles.resultsContainer}>
+        <p className={styles.resultsHeading}>Use our pattern recognition algorithms in your business - <span className={styles.highlight}>soon to be anounced</span></p>
+        <p className={styles.resultsText}>Our technology isn’t limited to paintings and artworks. Reach out to discover how our models can enhance quality control in manufacturing, streamline logistics operations, or optimize inventory management in retail and many more.</p>
+      </div>
+
     </>
   );
 };
