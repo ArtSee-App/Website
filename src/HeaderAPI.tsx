@@ -14,7 +14,7 @@ const HeaderAPI: React.FC = () => {
             </div>
             <div className={styles.headerRight}>
                 <Link to="/" title="Home">
-                    <FaHome size={24} style={{ color: 'white' }} />
+                    <FaHome size={30} style={{ color: 'white' }} />
                 </Link>
             </div>
         </div>

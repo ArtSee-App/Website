@@ -52,18 +52,16 @@
 
 .textWithIcon a {
     all: unset;
-    /* This removes all default styles from the link */
     display: flex;
     align-items: center;
     cursor: pointer;
-    /* Maintains the pointer cursor */
-    color: black;
-    /* Set your preferred color */
+    color: black; /* Set text color to black */
+    text-decoration: none; /* Removes underline by default */
 }
 
 .textWithIcon a:hover {
-    text-decoration: underline;
-    /* Only underline on hover */
+    color: black; /* Keeps the color black on hover */
+    text-decoration: underline; /* Optional: Adds underline on hover for visual feedback */
 }
 
 

@@ -44,7 +44,7 @@
 .smallText {
     font-size: 1.3vw;
     /* Smaller font size for details */
-    margin-top: 0%;
+    margin-top: -3%;
     color: black;
 
 }
@@ -52,4 +52,338 @@
 .highlight {
     color: #EFAC01;
     /* Sets the text color to yellow */
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.imageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #EFAC01;
+    padding: 1%;
+    border-radius: 10%;
+}
+
+.imageStyle,
+.smallImageStyle {
+    color: black;
+    /* Sets the icon color to yellow */
+    font-size: 7vw;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 10%;
+    /* Adjust icon size */
+}
+
+.smallImageStyle {
+    font-size: 3vw;
+    width: 8vw;
+    height: 8vw;
+    /* Smaller icon for the smaller section */
+}
+
+.horizontalSeparator {
+    width: 20%;
+    /* Adjusted for horizontal line */
+    height: 3px;
+    background-color: #EFAC01;
+    margin: 5vw 0;
+    /* Spacing around the separator */
+}
+
+.infoContainer {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.infoText {
+    display: flex;
+    align-items: center;
+    font-size: 1.3vw;
+    color: black;
+    margin-left: 3%;
+}
+
+.arrowIcon {
+    color: #EFAC01;
+    /* Set icon color to yellow */
+    margin-right: 10px;
+    /* Space between the icon and text */
+    flex-shrink: 0;
+    /* Prevents the icon from shrinking */
+    width: 2vw;
+    /* Fixed width of the icon */
+    height: 2vw;
+    /* Fixed height of the icon */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 5px;
+    border: 2px solid #EFAC01;
+}
+
+.infoText span {
+    cursor: pointer;
+    /* Changes the cursor to indicate clickable item */
+    transition: text-decoration 0.3s;
+    /* Smooth transition for the text decoration */
+}
+
+.infoText span:hover {
+    text-decoration: underline;
+    /* Underlines the text on hover */
+}
+
+.ovalContainer {
+    display: flex;
+    justify-content: space-evenly;
+    /* Evenly distributes space between and around ovals */
+    align-items: center;
+    /* Aligns ovals vertically in the middle */
+    flex-wrap: nowrap;
+    /* Prevents ovals from wrapping to the next line */
+    margin-top: 20px;
+    margin-bottom: 3%;
+    width: 100%;
+    /* Ensures the container spans the full width of its parent */
+}
+
+.ovalContainer .oval {
+    background-color: #EFAC01;
+    /* Default background color for all ovals */
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    height: 30vw;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    margin: 0 2%;
+}
+
+/* Target the second and third ovals specifically */
+.ovalContainer .oval:nth-child(2),
+.ovalContainer .oval:nth-child(3) {
+    background-color: transparent;
+    /* Remove the background color for these ovals */
+    box-shadow: none;
+    /* Optional: remove the shadow if it doesn't fit the design */
+}
+
+.ovalText {
+    color: white;
+    /* Color for text inside the yellow oval */
+    margin: 2% 0;
+    /* Spacing for text */
+    text-align: center;
+    font-size: 1.3vw;
+    /* Centering text */
+}
+
+.ovalContainer .oval:nth-child(2) .ovalText,
+.ovalContainer .oval:nth-child(3) .ovalText {
+    color: black;
+    /* Change text color to black for these specific ovals */
+}
+
+.ovalContainer .oval:nth-child(2) .ovalText.ovalTextBold:not(.ovalTextBig),
+.ovalContainer .oval:nth-child(3) .ovalText.ovalTextBold:not(.ovalTextBig) {
+    color: #EFAC01;
+    /* Highlight artist name with yellow */
+}
+
+/* Ensure percentage text remains black (or however you want to style it) */
+.ovalContainer .oval:nth-child(2) .ovalText.ovalTextBig,
+.ovalContainer .oval:nth-child(3) .ovalText.ovalTextBig {
+    color: black;
+    /* Keeps percentage text black */
+}
+
+
+.ovalTextBold {
+    font-weight: bold;
+}
+
+.ovalTextBig {
+    font-size: 1.5vw;
+
+}
+
+.ovalImage {
+    width: 20vw;
+    height: 20vw;
+    margin-top: 2%;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    /* Shadow for the image */
+    border-radius: 10%;
+}
+
+.sublineContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
+    margin-top: 20px;
+}
+
+.sublineText {
+    margin-right: 20px;
+    /* Space between text and line */
+    font-weight: bold;
+    color: black;
+    font-size: 1.3vw;
+}
+
+.errorText {
+    color: black;
+}
+
+
+.subline {
+    flex: 1;
+    height: 2px;
+    background-color: #ccc;
+    /* Gray line */
+    margin-right: 6%;
+}
+
+
+.ldsroller,
+.ldsroller div,
+.ldsroller div:after {
+    box-sizing: border-box;
+}
+
+.ldsroller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.ldsroller div {
+    animation: ldsroller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+
+.ldsroller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7.2px;
+    height: 7.2px;
+    border-radius: 50%;
+    background: currentColor;
+    margin: -3.6px 0 0 -3.6px;
+    background: black;
+    /* Light blue color */
+
+}
+
+.ldsroller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.ldsroller div:nth-child(1):after {
+    top: 62.62742px;
+    left: 62.62742px;
+}
+
+.ldsroller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.ldsroller div:nth-child(2):after {
+    top: 67.71281px;
+    left: 56px;
+}
+
+.ldsroller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.ldsroller div:nth-child(3):after {
+    top: 70.90963px;
+    left: 48.28221px;
+}
+
+.ldsroller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.ldsroller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+
+.ldsroller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.ldsroller div:nth-child(5):after {
+    top: 70.90963px;
+    left: 31.71779px;
+}
+
+.ldsroller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.ldsroller div:nth-child(6):after {
+    top: 67.71281px;
+    left: 24px;
+}
+
+.ldsroller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.ldsroller div:nth-child(7):after {
+    top: 62.62742px;
+    left: 17.37258px;
+}
+
+.ldsroller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.ldsroller div:nth-child(8):after {
+    top: 56px;
+    left: 12.28719px;
+}
+
+@keyframes ldsroller {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 1s ease-out forwards;
 }

@@ -1,8 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './HeaderAPI';
 import styles from './ApplicationProgrammingInterface.module.css';
+import { FaCamera, FaArrowRight } from 'react-icons/fa'; // Import the camera and arrow icons
+
 
 const APIPage: React.FC = () => {
+
+  const [image, setImage] = useState<string | null>(null);
+  const [artwork, setArtwork] = useState({ artist: '', title: '', image_url: '', score: '' });
+  const [isLoading, setIsLoading] = useState(false); // State to track loading status
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files && e.target.files[0];
+    if (file) {
+      // Check for file type
+      const validTypes = ['image/jpeg', 'image/png'];
+      if (!validTypes.includes(file.type)) {
+        setErrorMessage('Invalid file type. Please upload an image (JPG or PNG).');
+        setImage(null);
+        setIsLoading(false);
+        return; // Stop further processing
+      }
+
+      setIsLoading(true);
+      setErrorMessage(''); // Clear any previous error messages
+      const reader = new FileReader();
+      reader.onload = (ev: ProgressEvent<FileReader>) => {
+        if (ev.target) {
+          setImage(ev.target.result as string);
+        }
+      };
+      reader.readAsDataURL(file);
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const response = await fetch('https://api.artvista.app/artwork_search_for_website/', {
+          method: 'POST',
+          body: formData,
+        });
+        const data = await response.json();
+        console.log(data);
+        if (data.website_results) {
+          setArtwork({
+            artist: data.website_results[0].artist,
+            title: data.website_results[0].title,
+            image_url: data.website_results[0].image_url,
+            score: data.scores[0]
+          });
+        } else {
+          setArtwork({ artist: '', title: '', image_url: '', score: '' }); // Reset artwork if no valid result
+        }
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error uploading image:', error);
+        setIsLoading(false);
+      }
+    }
+  };
+
+
   return (
     <>
       <Header />
@@ -18,6 +77,77 @@ const APIPage: React.FC = () => {
           <p className={styles.smallText}><span className={styles.highlight}>3.</span> The most similar paintings to the cropped image will be retrieved.</p>
         </div>
       </div>
+
+      <div className={styles.imageContainer}>
+        <div className={styles.imageWrapper}>
+          {image ? <img src={image} alt="Uploaded" className={styles.imageStyle} /> : <FaCamera className={styles.imageStyle} />}
+        </div>
+        <div className={styles.horizontalSeparator}></div>
+        <div className={styles.imageWrapper}>
+          <FaCamera className={styles.smallImageStyle} />
+        </div>
+      </div>
+
+      <div className={styles.infoContainer}>
+        <div className={styles.infoText} onClick={() => document.getElementById('fileInput')?.click()}>
+          <FaArrowRight className={styles.arrowIcon} />
+          <span>Use your photo</span>
+        </div>
+        <div className={styles.infoText}>
+          <FaArrowRight className={styles.arrowIcon} />
+          <span>Try the random photo</span>
+        </div>
+        <input type="file" id="fileInput" style={{ display: 'none' }} onChange={handleImageChange} />
+      </div>
+
+      {errorMessage ? (
+        <div className={`${styles.ovalContainer} ${styles.animatedContainer}`}>
+          <div className={styles.errorText}>{errorMessage}</div>
+        </div>
+      ) : artwork.title && artwork.artist && !isLoading ? (
+        <>
+          <div className={`${styles.sublineContainer} ${styles.animatedContainer}`}>
+            <div className={styles.sublineText}>Result</div>
+            <div className={styles.subline}></div>
+          </div>
+          <div className={`${styles.ovalContainer} ${styles.animatedContainer} ${styles.fadeIn}`}>
+            <div className={styles.oval}>
+              <div className={styles.ovalText}>{artwork.title}</div>
+              <div className={`${styles.ovalText} ${styles.ovalTextBold}`}>{artwork.artist}</div>
+              <img src={artwork.image_url} alt="Output Image" className={styles.ovalImage} />
+              <div className={`${styles.ovalText} ${styles.ovalTextBold} ${styles.ovalTextBig}`}>{artwork.score}%</div>
+            </div>
+
+            <div className={styles.oval}>
+              <div className={styles.ovalText}>{artwork.title}</div>
+              <div className={`${styles.ovalText} ${styles.ovalTextBold}`}>{artwork.artist}</div>
+              <img src={artwork.image_url} alt="Output Image" className={styles.ovalImage} />
+              <div className={`${styles.ovalText} ${styles.ovalTextBold} ${styles.ovalTextBig}`}>{artwork.score}%</div>
+            </div>
+
+            <div className={styles.oval}>
+              <div className={styles.ovalText}>{artwork.title}</div>
+              <div className={`${styles.ovalText} ${styles.ovalTextBold}`}>{artwork.artist}</div>
+              <img src={artwork.image_url} alt="Output Image" className={styles.ovalImage} />
+              <div className={`${styles.ovalText} ${styles.ovalTextBold} ${styles.ovalTextBig}`}>{artwork.score}%</div>
+            </div>
+
+          </div>
+        </>
+      ) : (
+        isLoading && (
+          <>
+            <div className={`${styles.sublineContainer} ${styles.animatedContainer}`}>
+              <div className={styles.sublineText}>Result</div>
+              <div className={styles.subline}></div>
+            </div>
+
+            <div className={`${styles.ovalContainer} ${styles.animatedContainer}`}>
+              <div className={styles.ldsroller}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
+          </>
+        )
+      )}
+
     </>
   );
 };

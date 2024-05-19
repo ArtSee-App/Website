@@ -55,6 +55,23 @@
   /* Specifically removes outline on focus */
 }
 
+.headerRight a {
+  display: inline-flex;
+  /* Allows the link to fit the size of its contents */
+  align-items: center;
+  /* Centers the icon vertically */
+  text-decoration: none;
+  /* Removes default underline from links */
+  color: inherit;
+  /* Inherits white color from the parent */
+}
+
+.headerRight a:hover {
+  border-bottom: 2px solid white;
+  /* Adds a white underline effect on hover */
+}
+
+
 @media (max-width: 768px) {
   .header {
     flex-direction: row;
@@ -64,6 +81,6 @@
 
 
   .logo {
-    width: 40px;
+    width: 30px;
   }
 }
