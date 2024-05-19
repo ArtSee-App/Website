@@ -55,13 +55,17 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    color: black; /* Set text color to black */
-    text-decoration: none; /* Removes underline by default */
+    color: black;
+    /* Set text color to black */
+    text-decoration: none;
+    /* Removes underline by default */
 }
 
 .textWithIcon a:hover {
-    color: black; /* Keeps the color black on hover */
-    text-decoration: underline; /* Optional: Adds underline on hover for visual feedback */
+    color: black;
+    /* Keeps the color black on hover */
+    text-decoration: underline;
+    /* Optional: Adds underline on hover for visual feedback */
 }
 
 
@@ -386,8 +390,9 @@
     }
 
     .icon {
-        width: 20px;
-        height: 20px;
+        width: 5vw;
+        height: 5vw;
+        padding: 3px;
     }
 
     .imageUploadButton {
