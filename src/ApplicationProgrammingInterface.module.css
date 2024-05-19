@@ -416,3 +416,83 @@
     color: black;
     /* Smaller font size for the detailed text */
 }
+
+
+/* Media Query for Tablets */
+@media (max-width: 768px) {
+    .bigText {
+        width: 100%;
+        /* Ensure it spans the full width of its container */
+        text-align: center;
+        /* Center the text inside bigText */
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+    }
+
+    .smallText {
+        font-size: 16px;
+        margin-top: -3%;
+        color: black;
+        text-align: left;
+        /* Ensures text within is aligned left */
+    }
+
+
+    /* Override specific alignments if necessary */
+    .leftSide,
+    .rightSide {
+        text-align: start;
+        /* Ensures container text is aligned to the start */
+        justify-content: flex-start;
+        /* Align children to the start of the flex container */
+    }
+
+    .contentContainer,
+    .resultsContainer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .infoContainer {
+        margin-left: 0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    .leftSide,
+    .rightSide {
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+    }
+
+
+    .ovalContainer {
+        flex-direction: row;
+    }
+
+    .oval {
+        width: 80vw;
+        /* Adjust oval size to fit screen */
+        height: auto;
+    }
+
+    .arrowIcon {
+        width: 5vw;
+        /* Make icons larger for better touch target */
+        height: 5vw;
+    }
+
+    .resultsHeading {
+        font-size: 20px;
+    }
+
+    .resultsText {
+        font-size: 16px;
+    }
+}
