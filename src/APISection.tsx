@@ -80,46 +80,10 @@ const APISection: React.FC = () => {
                         <FaCamera className={styles.cameraIcon} size="10em" />
                     )}
                     <label className={styles.imageUploadButton}>
-                        Submit Image
-                        <input type="file" style={{ display: 'none' }} onChange={handleImageChange} />
+                        Input image
                     </label>
                 </div>
             </div>
-
-            {errorMessage ? (
-                <div className={`${styles.ovalContainer} ${styles.animatedContainer}`}>
-                    <div className={styles.errorText}>{errorMessage}</div>
-                </div>
-            ) : artwork.title && artwork.artist && !isLoading ? (
-                <>
-                    <div className={`${styles.sublineContainer} ${styles.animatedContainer}`}>
-                        <div className={styles.sublineText}>Result</div>
-                        <div className={styles.subline}></div>
-                    </div>
-                    <div className={`${styles.ovalContainer} ${styles.animatedContainer} ${styles.fadeIn}`}>
-                        <div className={styles.oval}>
-                            <div className={styles.ovalText}>{artwork.title}</div>
-                            <div className={`${styles.ovalText} ${styles.ovalTextBold}`}>{artwork.artist}</div>
-                            <img src={artwork.image_url} alt="Output Image" className={styles.ovalImage} />
-                        </div>
-                    </div>
-                </>
-            ) : (
-                isLoading && (
-                    <>
-                        <div className={`${styles.sublineContainer} ${styles.animatedContainer}`}>
-                            <div className={styles.sublineText}>Result</div>
-                            <div className={styles.subline}></div>
-                        </div>
-
-                        <div className={`${styles.ovalContainer} ${styles.animatedContainer}`}>
-                            <div className={styles.ldsroller}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
-                    </>
-                )
-            )}
-
-
-
             <div className={styles.bottomLine}></div>
 
         </section>

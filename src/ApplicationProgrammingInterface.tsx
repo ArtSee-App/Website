@@ -7,7 +7,7 @@ import { FaCamera, FaArrowRight } from 'react-icons/fa'; // Import the camera an
 const APIPage: React.FC = () => {
 
   const [image, setImage] = useState<string | null>(null);
-  const [artwork, setArtwork] = useState({ artist: '', title: '', image_url: '', score: '' });
+  const [artwork, setArtwork] = useState({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
   const [isLoading, setIsLoading] = useState(false); // State to track loading status
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -48,10 +48,18 @@ const APIPage: React.FC = () => {
             artist: data.website_results[0].artist,
             title: data.website_results[0].title,
             image_url: data.website_results[0].image_url,
-            score: data.scores[0]
+            score: data.scores[0],
+            artist2: data.website_results[1].artist,
+            title2: data.website_results[1].title,
+            image_url2: data.website_results[1].image_url,
+            score2: data.scores[1],
+            artist3: data.website_results[2].artist,
+            title3: data.website_results[2].title,
+            image_url3: data.website_results[2].image_url,
+            score3: data.scores[2]
           });
         } else {
-          setArtwork({ artist: '', title: '', image_url: '', score: '' }); // Reset artwork if no valid result
+          setArtwork({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
         }
         setIsLoading(false);
       } catch (error) {
@@ -119,19 +127,18 @@ const APIPage: React.FC = () => {
             </div>
 
             <div className={styles.oval}>
-              <div className={styles.ovalText}>{artwork.title}</div>
-              <div className={`${styles.ovalText} ${styles.ovalTextBold}`}>{artwork.artist}</div>
-              <img src={artwork.image_url} alt="Output Image" className={styles.ovalImage} />
-              <div className={`${styles.ovalText} ${styles.ovalTextBold} ${styles.ovalTextBig}`}>{artwork.score}%</div>
+              <div className={styles.ovalText}>{artwork.title2}</div>
+              <div className={`${styles.ovalText} ${styles.ovalTextBold}`}>{artwork.artist2}</div>
+              <img src={artwork.image_url2} alt="Output Image" className={styles.ovalImage} />
+              <div className={`${styles.ovalText} ${styles.ovalTextBold} ${styles.ovalTextBig}`}>{artwork.score2}%</div>
             </div>
 
             <div className={styles.oval}>
-              <div className={styles.ovalText}>{artwork.title}</div>
-              <div className={`${styles.ovalText} ${styles.ovalTextBold}`}>{artwork.artist}</div>
-              <img src={artwork.image_url} alt="Output Image" className={styles.ovalImage} />
-              <div className={`${styles.ovalText} ${styles.ovalTextBold} ${styles.ovalTextBig}`}>{artwork.score}%</div>
+              <div className={styles.ovalText}>{artwork.title3}</div>
+              <div className={`${styles.ovalText} ${styles.ovalTextBold}`}>{artwork.artist3}</div>
+              <img src={artwork.image_url3} alt="Output Image" className={styles.ovalImage} />
+              <div className={`${styles.ovalText} ${styles.ovalTextBold} ${styles.ovalTextBig}`}>{artwork.score3}%</div>
             </div>
-
           </div>
         </>
       ) : (
