@@ -5,60 +5,7 @@ import { FaCamera } from 'react-icons/fa'; // Import the camera icon
 import { Link } from 'react-router-dom';
 
 const APISection: React.FC = () => {
-    const [image, setImage] = useState<string | null>(null);
-    const [artwork, setArtwork] = useState({ artist: '', title: '', image_url: '' });
-    const [isLoading, setIsLoading] = useState(false); // State to track loading status
-    const [errorMessage, setErrorMessage] = useState('');
-
-    const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files && e.target.files[0];
-        if (file) {
-            // Check for file type
-            const validTypes = ['image/jpeg', 'image/png'];
-            if (!validTypes.includes(file.type)) {
-                setErrorMessage('Invalid file type. Please upload an image (JPG or PNG).');
-                setImage(null);
-                setIsLoading(false);
-                return; // Stop further processing
-            }
-
-            setIsLoading(true);
-            setErrorMessage(''); // Clear any previous error messages
-            const reader = new FileReader();
-            reader.onload = (ev: ProgressEvent<FileReader>) => {
-                if (ev.target) {
-                    setImage(ev.target.result as string);
-                }
-            };
-            reader.readAsDataURL(file);
-
-            const formData = new FormData();
-            formData.append('file', file);
-
-            try {
-                const response = await fetch('https://api.artvista.app/image_search/', {
-                    method: 'POST',
-                    body: formData,
-                });
-                const data = await response.json();
-                console.log(data);
-                if (data.result) {
-                    setArtwork({
-                        artist: data.result.artist,
-                        title: data.result.title,
-                        image_url: data.result.image_url
-                    });
-                } else {
-                    setArtwork({ artist: '', title: '', image_url: '' }); // Reset artwork if no valid result
-                }
-                setIsLoading(false);
-            } catch (error) {
-                console.error('Error uploading image:', error);
-                setIsLoading(false);
-            }
-        }
-    };
-
+    const [image] = useState<string | null>(null);
     return (
         <section id="api">
             <div className={styles.sectionContainer}>
