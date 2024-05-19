@@ -137,6 +137,7 @@
     cursor: pointer;
     /* Changes the cursor to indicate clickable item */
     transition: text-decoration 0.3s;
+    font-size: 1.3vw;
     /* Smooth transition for the text decoration */
 }
 
@@ -495,4 +496,12 @@
     .resultsText {
         font-size: 16px;
     }
+
+    .infoText span {
+        font-size: 16px;
+        /* Smooth transition for the text decoration */
+    }
+    
+    
+
 }
