@@ -11,7 +11,12 @@ const AboutContactSection: React.FC = () => {
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSending(true);  // Disable the button when the email is being sent
-        emailjs.sendForm('service_cplgcyh', 'template_lnrdarq', e.currentTarget, 'OxXd5GY_BMylywhHL')
+        emailjs.sendForm(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+            e.currentTarget,
+            import.meta.env.VITE_EMAILJS_USER_ID
+        )
             .then((result) => {
                 console.log(result.text);
                 alert('Message sent!');

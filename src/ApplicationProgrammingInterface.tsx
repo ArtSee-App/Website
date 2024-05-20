@@ -37,7 +37,7 @@ const APIPage: React.FC = () => {
       formData.append('file', file);
 
       try {
-        const response = await fetch('https://api.artvista.app/artwork_search_for_website/', {
+        const response = await fetch(import.meta.env.VITE_API_URL, {
           method: 'POST',
           body: formData,
         });
