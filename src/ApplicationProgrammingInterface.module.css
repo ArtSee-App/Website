@@ -71,6 +71,31 @@
     border-radius: 10%;
 }
 
+.imageWrapper.smallImageWrapper+.smallImageWrapper {
+    margin-left: 20px;
+    /* Adjust spacing between small image wrappers */
+}
+
+.imageWrapper.smallImageWrapper {
+    transition: box-shadow 0.3s ease-in-out;
+    /* Smooth transition for the shadow */
+    border-radius: 10%;
+    /* Consistent with image style */
+}
+
+.imageWrapper.smallImageWrapper:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    /* Shadow appears on hover */
+}
+
+
+/* Removes additional space for the first and last imageWrapper if necessary */
+.imageWrapper.smallImageWrapper:first-child,
+.imageWrapper.smallImageWrapper:last-child {
+    margin-right: 0;
+}
+
+
 .imageStyle,
 .smallImageStyle {
     color: black;

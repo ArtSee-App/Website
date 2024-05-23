@@ -174,7 +174,7 @@ const APIPage: React.FC = () => {
           <div className={styles.horizontalSeparator}></div>
           {croppedImages.length > 0 && errorMessage == '' ? (
             croppedImages.map((img, index) => (
-              <div key={index} className={styles.imageWrapper} onClick={() => fetchArtworkDetails(img)}>
+              <div key={index} className={`${styles.imageWrapper} ${styles.smallImageWrapper}`} onClick={() => fetchArtworkDetails(img)}>
                 <img src={img} alt={`Cropped ${index}`} className={styles.smallImageStyle} />
               </div>
             ))
