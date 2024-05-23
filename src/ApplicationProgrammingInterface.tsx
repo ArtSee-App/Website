@@ -10,63 +10,142 @@ const APIPage: React.FC = () => {
   const [artwork, setArtwork] = useState({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
   const [isLoading, setIsLoading] = useState(false); // State to track loading status
   const [errorMessage, setErrorMessage] = useState('');
+  const [croppedImages, setCroppedImages] = useState<string[]>([]);
+
+  const cropImage = (imageSrc: string, bbox: { w: number; h: number; x: number; y: number; }) => {
+    return new Promise((resolve, reject) => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      img.onload = () => {
+        canvas.width = bbox.w;
+        canvas.height = bbox.h;
+        ctx?.drawImage(img, -bbox.x, -bbox.y);
+        resolve(canvas.toDataURL());
+      };
+      img.onerror = reject;
+      img.src = imageSrc;
+    });
+  };
+
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
     if (file) {
-      // Check for file type
       const validTypes = ['image/jpeg', 'image/png'];
       if (!validTypes.includes(file.type)) {
         setErrorMessage('Invalid file type. Please upload an image (JPG or PNG).');
         setImage(null);
         setIsLoading(false);
-        return; // Stop further processing
+        return;
       }
 
       setIsLoading(true);
-      setErrorMessage(''); // Clear any previous error messages
+      setErrorMessage('');
       const reader = new FileReader();
-      reader.onload = (ev: ProgressEvent<FileReader>) => {
-        if (ev.target) {
-          setImage(ev.target.result as string);
+      reader.onload = async (ev: ProgressEvent<FileReader>) => {
+        if (ev.target?.result) {
+          setImage(ev.target.result as string);  // Set the original image
+          const formData = new FormData();
+          formData.append('file', file);  // Append the original file to FormData
+
+          try {
+            const bboxResponse = await fetch(import.meta.env.VITE_APIBBOX_URL, {
+              method: 'POST',
+              body: formData,
+            });
+            const bboxes = await bboxResponse.json();
+
+            if (bboxes.length > 0) {
+              const crops = await Promise.all(bboxes.map((bbox: { bbox: { w: number; h: number; x: number; y: number; }; }) => cropImage(ev.target?.result as string, bbox.bbox)));
+              setCroppedImages(crops);
+
+              // Convert the first cropped image data URL to a Blob for uploading
+              const firstCropBlob = await fetch(crops[0]).then(r => r.blob());
+              const croppedFile = new File([firstCropBlob], 'croppedImage.jpg', { type: 'image/jpeg' });
+
+              // Clear the FormData and append the cropped image file
+              formData.delete('file');
+              formData.append('file', croppedFile);
+            } else {
+              // No bounding boxes, use the original image
+              setCroppedImages([ev.target.result as string]);
+            }
+
+            // Fetch artwork details using either the cropped image or the original image
+            const artResponse = await fetch(import.meta.env.VITE_API_URL, {
+              method: 'POST',
+              body: formData,
+            });
+            const data = await artResponse.json();
+            console.log(data);
+            if (data.website_results) {
+              setArtwork({
+                artist: data.website_results[0].artist,
+                title: data.website_results[0].title,
+                image_url: data.website_results[0].image_url,
+                score: data.scores[0],
+                artist2: data.website_results[1].artist,
+                title2: data.website_results[1].title,
+                image_url2: data.website_results[1].image_url,
+                score2: data.scores[1],
+                artist3: data.website_results[2].artist,
+                title3: data.website_results[2].title,
+                image_url3: data.website_results[2].image_url,
+                score3: data.scores[2]
+              });
+            } else {
+              setArtwork({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
+            }
+            setIsLoading(false);
+          } catch (error) {
+            console.error('Error processing image:', error);
+            setIsLoading(false);
+          }
         }
       };
       reader.readAsDataURL(file);
-
-      const formData = new FormData();
-      formData.append('file', file);
-
-      try {
-        const response = await fetch(import.meta.env.VITE_API_URL, {
-          method: 'POST',
-          body: formData,
-        });
-        const data = await response.json();
-        console.log(data);
-        if (data.website_results) {
-          setArtwork({
-            artist: data.website_results[0].artist,
-            title: data.website_results[0].title,
-            image_url: data.website_results[0].image_url,
-            score: data.scores[0],
-            artist2: data.website_results[1].artist,
-            title2: data.website_results[1].title,
-            image_url2: data.website_results[1].image_url,
-            score2: data.scores[1],
-            artist3: data.website_results[2].artist,
-            title3: data.website_results[2].title,
-            image_url3: data.website_results[2].image_url,
-            score3: data.scores[2]
-          });
-        } else {
-          setArtwork({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
-        }
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error uploading image:', error);
-        setIsLoading(false);
-      }
     }
+  };
+
+  const fetchArtworkDetails = async (imageSrc: RequestInfo | URL) => {
+    const imageBlob = await fetch(imageSrc).then(r => r.blob());
+    const imageFile = new File([imageBlob], 'selectedImage.jpg', { type: 'image/jpeg' });
+
+    const formData = new FormData();
+    formData.append('file', imageFile);
+
+    setIsLoading(true);
+    try {
+      const response = await fetch(import.meta.env.VITE_API_URL, {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await response.json();
+
+      if (data.website_results) {
+        setArtwork({
+          artist: data.website_results[0].artist,
+          title: data.website_results[0].title,
+          image_url: data.website_results[0].image_url,
+          score: data.scores[0],
+          artist2: data.website_results[1].artist,
+          title2: data.website_results[1].title,
+          image_url2: data.website_results[1].image_url,
+          score2: data.scores[1],
+          artist3: data.website_results[2].artist,
+          title3: data.website_results[2].title,
+          image_url3: data.website_results[2].image_url,
+          score3: data.scores[2]
+        });
+      } else {
+        setArtwork({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
+      }
+    } catch (error) {
+      console.error('Error fetching artwork details:', error);
+      setErrorMessage('Failed to fetch artwork details');
+    }
+    setIsLoading(false);
   };
 
 
@@ -82,8 +161,9 @@ const APIPage: React.FC = () => {
           <div className={styles.rightSide}>
             <p className={styles.bigText}>How to use</p>
             <p className={styles.smallText}><span className={styles.highlight}>1.</span> <span className={styles.highlight}>Upload</span> a photo of a painting.</p>
-            <p className={styles.smallText}><span className={styles.highlight}>2.</span> The API will try to crop the painting.</p>
-            <p className={styles.smallText}><span className={styles.highlight}>3.</span> The most similar paintings to the cropped image will be retrieved.</p>
+            <p className={styles.smallText}><span className={styles.highlight}>2.</span> The API will try to crop the image.</p>
+            <p className={styles.smallText}><span className={styles.highlight}>3.</span> Select one of the detected paintings from the initial image.</p>
+            <p className={styles.smallText}><span className={styles.highlight}>4.</span> The most similar paintings to the selected crop will be retrieved.</p>
           </div>
         </div>
 
@@ -92,9 +172,17 @@ const APIPage: React.FC = () => {
             {image ? <img src={image} alt="Uploaded" className={styles.imageStyle} /> : <FaCamera className={styles.imageStyle} />}
           </div>
           <div className={styles.horizontalSeparator}></div>
-          <div className={styles.imageWrapper}>
-            <FaCamera className={styles.smallImageStyle} />
-          </div>
+          {croppedImages.length > 0 && errorMessage == '' ? (
+            croppedImages.map((img, index) => (
+              <div key={index} className={styles.imageWrapper} onClick={() => fetchArtworkDetails(img)}>
+                <img src={img} alt={`Cropped ${index}`} className={styles.smallImageStyle} />
+              </div>
+            ))
+          ) : (
+            <div className={styles.imageWrapper}>
+              <FaCamera className={styles.smallImageStyle} />
+            </div>
+          )}
         </div>
 
         <div className={styles.infoContainer}>
