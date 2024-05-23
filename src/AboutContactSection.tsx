@@ -29,7 +29,7 @@ const AboutContactSection: React.FC = () => {
     };
 
     return (
-        <section id="aboutcontact">
+        <section id="aboutcontact" className={styles.aboutcontactContainer}>
             <p className={styles.header}>
                 <span>About </span>
                 <span className={styles.yellowText}>ArtVista</span>

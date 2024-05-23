@@ -363,3 +363,11 @@
         /* Even smaller text to fit on small screens */
     }
 }
+
+@media (min-width: 1920px) {
+    .appSection {
+        width: 80%;
+        margin: 0 auto;
+        /* Center the content */
+    }
+}

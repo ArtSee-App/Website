@@ -6,6 +6,8 @@ import release from './assets/release.png'; // Import the image
 const RoadmapSection: React.FC = () => {
     return (
         <section id="roadmap" className={styles.roadmapContainer}>
+            <div className={styles.bottomLine}></div>
+
             <div className={styles.textContainer}>
                 <div className={styles.titleText}>
                     ArtVista’s <span className={styles.highlight}>RoadMap</span>

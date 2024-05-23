@@ -246,3 +246,12 @@
     }
 
 }
+
+
+@media (min-width: 1920px) {
+    .roadmapContainer {
+        width: 80%;
+        margin: 0 auto;
+        /* Center the content */
+    }
+}

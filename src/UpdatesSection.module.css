@@ -132,3 +132,11 @@
     }
 
 }
+
+@media (min-width: 1920px) {
+    .updatesSection {
+        width: 80%;
+        margin: 0 auto;
+        /* Center the content */
+    }
+}

@@ -30,8 +30,8 @@ const APISection: React.FC = () => {
                         Input image
                     </label>
                 </div>
+
             </div>
-            <div className={styles.bottomLine}></div>
 
         </section>
     );
