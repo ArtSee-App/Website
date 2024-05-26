@@ -234,7 +234,7 @@ const APIPage: React.FC = () => {
           isLoading && (
             <>
               <div className={`${styles.sublineContainer} ${styles.animatedContainer}`}>
-                <div className={styles.sublineText}>Result</div>
+                <div className={styles.sublineText}>Results</div>
                 <div className={styles.subline}></div>
               </div>
 
