@@ -581,6 +581,10 @@
         margin-top: 5%;
     }
 
+    .rightSide {
+        margin-top: -2%;
+    }
+
 
 
     .ovalContainer {
@@ -598,6 +602,7 @@
         /* Make icons larger for better touch target */
         height: 5vw;
         padding: 3px;
+        margin-right: 3px;
     }
 
     .resultsHeading {

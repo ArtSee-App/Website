@@ -282,6 +282,10 @@
 
 @media (max-width: 768px) {
 
+    .footerDescriptionItem {
+        margin-left: -4%;
+        text-align: left;
+    }
 
 
 
