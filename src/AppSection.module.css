@@ -5,6 +5,8 @@
     /* Changed to column to stack children vertically */
     align-items: center;
     justify-content: center;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .imageContainer {
@@ -14,8 +16,6 @@
     align-items: center;
     /* Align items vertically */
     position: relative;
-    margin-top: 3%;
-    margin-bottom: 3%;
     width: 100%;
     height: 40vw;
     /* Adjust as needed */
@@ -27,7 +27,7 @@
     transition: all 0.3s ease;
     width: 20%;
     /* Adjust as needed */
-    height: 23vw;
+    height: 20vw;
     margin-bottom: 7%;
     border-radius: 10%;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
@@ -36,7 +36,7 @@
 }
 
 .artImage5 {
-    height: 39vw;
+    height: 35vw;
     /* Adjust height for image5 */
     margin-bottom: 0;
     border-radius: 5%;
@@ -113,7 +113,7 @@
     /* Set each text block to occupy one-fourth of the container width */
     top: 80%;
     /* Adjust position as needed */
-    font-size: 1.7vw;
+    font-size: min(1.7vw, 2em);
     /* Font size adjusts based on the width of the viewport */
     color: black;
     text-align: center;
@@ -149,7 +149,7 @@
 .leftContent {
     flex: 3;
     /* Takes up 75% of the flex container */
-    font-size: 3vw;
+    font-size: 2.5em;
     /* Adjust font size as needed */
     padding: 20px;
     color: black;
@@ -174,9 +174,9 @@
 }
 
 .platformLogo {
-    width: 6%;
+    width: 1em;
     /* Adjust size as needed */
-    height: 6%;
+    height: 1em;
     /* Adjust size as needed */
     /* Space between logo and text */
 }
@@ -187,7 +187,7 @@
     color: inherit;
     cursor: pointer;
     padding: 5px 10px;
-    font-size: 1.3vw;
+    font-size: 1em;
     outline: none;
 }
 
@@ -222,7 +222,7 @@
     /* Each item will take up equal space */
     text-align: center;
     /* Centers text within each flex item */
-    font-size: 2vw;
+    font-size: 2em;
     /* Adjust font size as needed */
     font-weight: bold;
     color: #EFAC01;
@@ -234,7 +234,7 @@
     /* Each item will take up equal space */
     text-align: center;
     /* Centers text within each flex item */
-    font-size: 1.5vw;
+    font-size: 1.2em;
     /* Adjust font size as needed */
     padding: 20px;
     margin-top: -20px;
@@ -361,13 +361,5 @@
     .footerDescriptionItem {
         font-size: 16px;
         /* Even smaller text to fit on small screens */
-    }
-}
-
-@media (min-width: 1920px) {
-    .appSection {
-        width: 80%;
-        margin: 0 auto;
-        /* Center the content */
     }
 }

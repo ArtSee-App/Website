@@ -1,7 +1,13 @@
+.aboutcontactContainer {
+    width: 80%;
+    margin: 0 auto;
+    /* Center the content */
+}
+
 .header {
     margin-left: 3%;
     /* Adjust the value as needed to push it more to the right */
-    font-size: 2vw;
+    font-size: 2em;
     font-weight: bold;
     color: black;
 }
@@ -18,7 +24,7 @@
     flex: 3;
     /* Takes up 3/4 of the space */
     /* Optional: adds some padding between the text and the image */
-    font-size: 2vw;
+    font-size: 1.5em;
     margin-top: 8%;
     color: black;
 }
@@ -79,13 +85,13 @@
     /* Space between the image and the text */
     text-align: center;
     color: black;
-    font-size: 1.3vw;
+    font-size: 1.2em;
     /* Centers the text below the image */
 }
 
 
 .bigText {
-    font-size: 2vw;
+    font-size: 1.5em;
 
     /* Customize the color as needed */
 }
@@ -107,7 +113,7 @@
 .contactText {
     flex: 1;
     /* Takes up half of the space in the container */
-    font-size: 1.5vw;
+    font-size: 1.5em;
     /* Adjust size as necessary */
     padding-right: 20px;
     margin-top: 7%;
@@ -137,7 +143,7 @@
     /* Slightly less than full width to account for padding/margins */
     padding: 8px;
     /* Spacing above and below each input */
-    font-size: 1.2vw;
+    font-size: 1em;
     /* Larger font size for better readability */
     border: 2px solid #EFAC01;
     background-color: lightgray;
@@ -158,7 +164,7 @@
 .textareaField {
     width: 100%;
     padding: 8px;
-    font-size: 1.2vw;
+    font-size: 1em;
     border: 2px solid #EFAC01;
     height: 100px;
     /* Larger height for message box */
@@ -171,7 +177,7 @@
 .inputHalf {
     width: 50%;
     /* Half width minus a little to account for padding */
-    font-size: 1.2vw;
+    font-size: 1em;
     border: 2px solid #EFAC01;
     border-radius: 4px;
 }
@@ -312,12 +318,4 @@
     }
 
 
-}
-
-@media (min-width: 1920px) {
-    .aboutcontactContainer {
-        width: 80%;
-        margin: 0 auto;
-        /* Center the content */
-    }
 }

@@ -1,9 +1,11 @@
 .roadmapContainer {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     align-items: center;
     margin-top: 50px;
+
 }
 
 .textContainer {
@@ -14,13 +16,14 @@
     /* This will place titleText and descriptionText on opposite ends */
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 50px;
     /* Space between text and images */
 }
 
 .titleText {
     flex: 1;
     /* Takes 1/4 of the row */
-    font-size: 2vw;
+    font-size: 2em;
     /* Adjust font size as needed */
     margin-left: 3%;
     color: black;
@@ -30,7 +33,7 @@
 .descriptionText {
     flex: 3;
     /* Takes 3/4 of the row */
-    font-size: 2vw;
+    font-size: 1.5em;
     /* Adjust font size as needed */
     padding: 20px;
     margin-left: 10%;
@@ -127,7 +130,7 @@
     /* Each text takes up equal space */
     margin: 0 20px;
     /* Adds horizontal space between the text segments */
-    font-size: 1.5vw;
+    font-size: 1.2em;
     /* Appropriate text size */
     text-align: justify;
     /* Justifies the text for better readability */
@@ -240,13 +243,4 @@
 
 
 
-}
-
-
-@media (min-width: 1920px) {
-    .roadmapContainer {
-        width: 80%;
-        margin: 0 auto;
-        /* Center the content */
-    }
 }

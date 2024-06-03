@@ -11,9 +11,12 @@
     display: flex;
     flex-direction: column;
     /* Ensures vertical stacking */
-    width: 100%;
-    margin-top: 50px;
+    width: 80%;
+    margin: 0 auto;
+    /* Center the content */
     margin-bottom: -100px;
+    margin-top: 50px;
+
 }
 
 .contentContainer {
@@ -21,7 +24,7 @@
     justify-content: space-between;
     background: linear-gradient(to bottom, #EFCD01 0%, #EE6C00 100%);
     /* Example gradient */
-    border-radius: 2%;
+    border-radius: 2%/15%;
     margin-right: 3%;
     margin-left: 3%;
     margin-bottom: 20px;
@@ -42,15 +45,22 @@
     align-items: center;
     justify-content: space-around;
     /* Adjust as necessary for image spacing */
-    padding: 20px;
 }
 
 .apiImage {
-    width: 40%;
+    width: 50%;
     /* Adjust size as needed */
-    height: 50%;
+    height: 70%;
     border-radius: 10%;
 }
+
+.apiImage2 {
+    width: 25%;
+    /* Adjust size as needed */
+    height: 70%;
+    border-radius: 10%;
+}
+
 
 
 .highlight {
@@ -62,11 +72,11 @@
 .textComponent {
     margin-bottom: 20px;
     color: black;
-    font-size: 1.5vw;
+    font-size: 1.2em;
 }
 
 .textLarge {
-    font-size: 2vw;
+    font-size: 2em;
     font-weight: bold;
     margin-left: 3%;
     /* Larger text size */
@@ -89,9 +99,12 @@
 
 
 .linkStyle:hover {
-    text-decoration: underline;  /* Ensures the underline appears on hover */
-    text-decoration-color: white;  /* Changes the underline color to white */
-    text-decoration-thickness: 2px;  /* Makes the underline thicker */
+    text-decoration: underline;
+    /* Ensures the underline appears on hover */
+    text-decoration-color: white;
+    /* Changes the underline color to white */
+    text-decoration-thickness: 2px;
+    /* Makes the underline thicker */
 }
 
 
@@ -131,15 +144,4 @@
     }
 
 
-}
-
-@media (min-width: 1920px) {
-    .sectionContainer {
-        width: 80%;
-        margin: 0 auto;
-        /* Center the content */
-        margin-bottom: -50px;
-        margin-top: 50px;
-
-    }
 }

@@ -175,7 +175,7 @@ const APIPage: React.FC = () => {
       return {
         justifyContent: 'center',
         border: '3px solid #EFAC01',
-        borderRadius: '2%',
+        borderRadius: '5%/10%'
       };
     } else {
       return {};

@@ -1,3 +1,10 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    /* Center the content */
+}
+
+
 .contentContainer {
     display: flex;
     width: 100%;
@@ -34,7 +41,7 @@
 }
 
 .bigText {
-    font-size: 2vw;
+    font-size: 2em;
     /* Larger font size for big text */
     font-weight: bold;
     color: black;
@@ -42,7 +49,7 @@
 }
 
 .smallText {
-    font-size: 1.3vw;
+    font-size: 1.2em;
     /* Smaller font size for details */
     margin-top: -3%;
     color: black;
@@ -129,7 +136,6 @@
     /* Vibrant yellow color for better visibility */
     border-radius: 6px;
     /* More pronounced rounded corners */
-    border: 3px solid #ffffff;
     /* White border for a sleek contrast */
     transition: background-color 0.3s ease;
     /* Smooth transition for hover effects */
@@ -151,16 +157,6 @@
     /* Subtle shadow for depth */
 }
 
-/* Optional: style for the scrollbar button (arrows) */
-.cropsContainer::-webkit-scrollbar-button {
-    background-color: #EFAC01;
-    /* Match the thumb color */
-    display: block;
-    height: 12px;
-    /* Slightly larger for a balanced look */
-    border-radius: 6px;
-    /* Rounded corners for the buttons */
-}
 
 /* Ensure scrollbar buttons fade in and out */
 .cropsContainer::-webkit-scrollbar-button {
@@ -216,7 +212,7 @@
 .infoText {
     display: flex;
     align-items: center;
-    font-size: 1.3vw;
+    font-size: 1em;
     color: black;
     margin-left: 3%;
 }
@@ -228,9 +224,9 @@
     /* Space between the icon and text */
     flex-shrink: 0;
     /* Prevents the icon from shrinking */
-    width: 2vw;
+    width: 2em;
     /* Fixed width of the icon */
-    height: 2vw;
+    height: 2em;
     /* Fixed height of the icon */
     display: flex;
     justify-content: center;
@@ -245,7 +241,7 @@
     cursor: pointer;
     /* Changes the cursor to indicate clickable item */
     transition: text-decoration 0.3s;
-    font-size: 1.3vw;
+    font-size: 1.2em;
     /* Smooth transition for the text decoration */
 }
 
@@ -296,7 +292,7 @@
     margin: 2% 0;
     /* Spacing for text */
     text-align: center;
-    font-size: 1.3vw;
+    font-size: min(1.3vw, 1.2em);
     /* Centering text */
 }
 
@@ -325,7 +321,7 @@
 }
 
 .ovalTextBig {
-    font-size: 1.5vw;
+    font-size: min(1.5vw, 1.5em);
 
 }
 
@@ -351,7 +347,7 @@
     /* Space between text and line */
     font-weight: bold;
     color: black;
-    font-size: 1.3vw;
+    font-size: 2em;
 }
 
 .errorText {
@@ -516,12 +512,12 @@
 }
 
 .resultsHeading {
-    font-size: 2vw;
+    font-size: 2em;
     color: black;
 }
 
 .resultsText {
-    font-size: 1.3vw;
+    font-size: 1.2em;
     color: black;
     /* Smaller font size for the detailed text */
 }
@@ -570,6 +566,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+        margin-top: 3%;
     }
 
 
@@ -579,6 +576,11 @@
         margin-right: 5%;
         text-align: center;
     }
+
+    .leftSide {
+        margin-top: 5%;
+    }
+
 
 
     .ovalContainer {
@@ -600,10 +602,12 @@
 
     .resultsHeading {
         font-size: 20px;
+        text-align: left;
     }
 
     .resultsText {
         font-size: 16px;
+        text-align: left;
     }
 
 
@@ -617,16 +621,6 @@
         font-size: 20px;
     }
 
-
-
-}
-
-@media (min-width: 1920px) {
-    .container {
-        width: 80%;
-        margin: 0 auto;
-        /* Center the content */
-    }
 
 
 }

@@ -3,12 +3,15 @@
     color: #333;
     width: 100%;
     padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+
 }
 
 .headingText {
     color: #FFFFFF;
     font-weight: bold;
-    font-size: 2vw;
+    font-size: 2em;
     text-align: flex-start;
     margin-left: 40px;
 }
@@ -51,7 +54,7 @@
 }
 
 .rectangleText {
-    font-size: 1vw;
+    font-size: 1em;
     text-align: center;
     color: #333;
 }
@@ -59,7 +62,7 @@
 .yellowText {
     color: #EFAC01;
     font-weight: bold;
-    font-size: 1.5vw;
+    font-size: 1.5em;
 }
 
 .viewAllUpdatesLink {
@@ -74,7 +77,7 @@
     color: white;
     text-decoration: none;
     cursor: pointer;
-    font-size: 2vw;
+    font-size: 2em;
     ;
     /* Smaller font size for mobile */
 }
@@ -131,12 +134,4 @@
         font-size: 20px;
     }
 
-}
-
-@media (min-width: 1920px) {
-    .updatesSection {
-        width: 80%;
-        margin: 0 auto;
-        /* Center the content */
-    }
 }

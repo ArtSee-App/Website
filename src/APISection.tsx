@@ -22,7 +22,7 @@ const APISection: React.FC = () => {
                     </div>
                     <div className={styles.rightContent}>
                         <img src={image1} alt="Example Image 1" className={styles.apiImage} />
-                        <img src={image2} alt="Example Image 2" className={styles.apiImage} />
+                        <img src={image2} alt="Example Image 2" className={styles.apiImage2} />
                     </div>
                 </div>
 
