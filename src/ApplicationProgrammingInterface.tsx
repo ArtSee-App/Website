@@ -11,6 +11,7 @@ const APIPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false); // State to track loading status
   const [errorMessage, setErrorMessage] = useState('');
   const [croppedImages, setCroppedImages] = useState<string[]>([]);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0); // Default to 0, the first image
 
   const cropImage = (imageSrc: string, bbox: { w: number; h: number; x: number; y: number; }) => {
     return new Promise((resolve, reject) => {
@@ -29,7 +30,9 @@ const APIPage: React.FC = () => {
   };
 
 
+
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedImageIndex(0);
     const file = e.target.files && e.target.files[0];
     if (file) {
       const validTypes = ['image/jpeg', 'image/png'];
@@ -108,7 +111,8 @@ const APIPage: React.FC = () => {
     }
   };
 
-  const fetchArtworkDetails = async (imageSrc: RequestInfo | URL) => {
+  const fetchArtworkDetails = async (imageSrc: RequestInfo | URL, index: number) => {
+    handleSelectImage(index);
     const imageBlob = await fetch(imageSrc).then(r => r.blob());
     const imageFile = new File([imageBlob], 'selectedImage.jpg', { type: 'image/jpeg' });
 
@@ -148,11 +152,73 @@ const APIPage: React.FC = () => {
     setIsLoading(false);
   };
 
+  const calculateMarginLeft = () => {
+    switch (croppedImages.length) {
+      case 0:
+        return '7%';   // no extra space when there are four or more images
+      case 1:
+        return '7%';   // no extra space when there are four or more images
+      case 2:
+        return '5%';  // slightly less space with two images
+      default:
+        return '0%';   // no extra space when there are four or more images
+    }
+  };
+
+
+  const containerStyle = {
+    marginLeft: calculateMarginLeft(),
+  };
+
+  const getCropsContainerStyle = () => {
+    if (croppedImages.length >= 4) {
+      return {
+        justifyContent: 'center',
+        border: '3px solid #EFAC01',
+        borderRadius: '2%',
+      };
+    } else {
+      return {};
+    }
+  };
+
+  interface Style {
+    border?: string;
+    boxShadow?: string;
+  }
+
+
+  const getSmallImageStyle = (index: number) => {
+    // Start with an empty style object
+    let style: Style = {};
+
+    // Condition to apply a border style if there are four or more images
+    if (croppedImages.length >= 4) {
+      style.border = '0px solid #EFAC01';
+    }
+
+    // Add a shadow if the current image is the selected one
+    if (index === selectedImageIndex) {
+      style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.6)';
+    }
+
+    // Return the combined style object
+    return style;
+  };
+
+  const handleSelectImage = (index: React.SetStateAction<number>) => {
+    setSelectedImageIndex(index); // Update the selected index state
+    // Potentially other logic like fetching details for the selected crop
+  };
+
+
+
+
 
   return (
     <>
       <Header />
-      <div className={styles.container}>
+      <div className={styles.container} >
         <div className={styles.contentContainer}>
           <div className={styles.leftSide}>
             <p className={styles.bigText}>Artwork Search <span className={styles.highlight}>API</span></p>
@@ -167,22 +233,24 @@ const APIPage: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.imageContainer}>
+        <div className={styles.imageAndCropsContainer} style={containerStyle}>
           <div className={styles.imageWrapper}>
             {image ? <img src={image} alt="Uploaded" className={styles.imageStyle} /> : <FaCamera className={styles.imageStyle} />}
           </div>
-          <div className={styles.horizontalSeparator}></div>
-          {croppedImages.length > 0 && errorMessage == '' ? (
-            croppedImages.map((img, index) => (
-              <div key={index} className={`${styles.imageWrapper} ${styles.smallImageWrapper}`} onClick={() => fetchArtworkDetails(img)}>
-                <img src={img} alt={`Cropped ${index}`} className={styles.smallImageStyle} />
+          <div className={styles.connectingLine}></div>
+          <div className={styles.cropsContainer} style={getCropsContainerStyle()}>
+            {croppedImages.length > 0 && errorMessage == '' ? (
+              croppedImages.map((img, index) => (
+                <div key={index} className={styles.smallImageWrapper} onClick={() => fetchArtworkDetails(img, index)}>
+                  <img src={img} alt={`Cropped ${index}`} className={styles.smallImageStyle} style={getSmallImageStyle(index)} />
+                </div>
+              ))
+            ) : (
+              <div className={styles.smallImageWrapper}>
+                <FaCamera className={styles.smallImageStyle} />
               </div>
-            ))
-          ) : (
-            <div className={styles.imageWrapper}>
-              <FaCamera className={styles.smallImageStyle} />
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         <div className={styles.infoContainer}>

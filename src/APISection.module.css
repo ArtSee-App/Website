@@ -9,32 +9,47 @@
 
 .sectionContainer {
     display: flex;
+    flex-direction: column;
+    /* Ensures vertical stacking */
     width: 100%;
     margin-top: 50px;
     margin-bottom: -100px;
 }
 
-.halfWidth {
-    width: 50%;
+.contentContainer {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #EFCD01 0%, #EE6C00 100%);
+    /* Example gradient */
+    border-radius: 2%;
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-bottom: 20px;
+}
+
+.leftContent {
     display: flex;
     flex-direction: column;
-    margin-left: 3%;
-}
-
-.halfWidthLeft {
     align-items: flex-start;
-    /* Aligns items to the left */
-}
-
-.halfWidthRight {
-    align-items: center;
     justify-content: center;
-    /* Centers items horizontally */
+    flex: 1;
+    padding: 20px;
 }
 
-.halfWidthRight img {
+.rightContent {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-around;
+    /* Adjust as necessary for image spacing */
+    padding: 20px;
+}
+
+.apiImage {
+    width: 40%;
+    /* Adjust size as needed */
     height: 50%;
-    width: 50%;
+    border-radius: 10%;
 }
 
 
@@ -43,55 +58,9 @@
     /* Yellow color for highlighted words */
 }
 
-.textWithIcon {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    /* Ensures that items are aligned to the start */
-}
-
-.textWithIcon a {
-    all: unset;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: black;
-    /* Set text color to black */
-    text-decoration: none;
-    /* Removes underline by default */
-}
-
-.textWithIcon a:hover {
-    color: black;
-    /* Keeps the color black on hover */
-    text-decoration: underline;
-    /* Optional: Adds underline on hover for visual feedback */
-}
-
-
-.icon {
-    color: #EFAC01;
-    /* Set icon color to yellow */
-    margin-right: 10px;
-    /* Space between the icon and text */
-    flex-shrink: 0;
-    /* Prevents the icon from shrinking */
-    width: 1.5vw;
-    /* Fixed width of the icon */
-    height: 1.5vw;
-    /* Fixed height of the icon */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    border-radius: 50%;
-    padding: 5px;
-    border: 2px solid #EFAC01;
-    /* Border color */
-}
 
 .textComponent {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     color: black;
     font-size: 1.5vw;
 }
@@ -99,244 +68,32 @@
 .textLarge {
     font-size: 2vw;
     font-weight: bold;
+    margin-left: 3%;
     /* Larger text size */
 }
 
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animatedContainer {
-    animation: fadeInDown 1s ease-out forwards;
-}
-
-
-
-.sublineContainer {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-left: 3%;
-}
-
-.sublineText {
-    margin-right: 20px;
-    /* Space between text and line */
+.textWhiteAndBold {
+    color: white;
     font-weight: bold;
-    color: black;
-    font-size: 2vw;
 }
 
-.errorText {
-    color: black;
-}
-
-
-.subline {
-    flex: 1;
-    height: 2px;
-    background-color: #ccc;
-    /* Gray line */
-    margin-right: 6%;
-}
-
-.ovalContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.oval {
-    background-color: #EFAC01;
-    border-radius: 50px;
-    padding: 20px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30%;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-    /* Shadow for the oval */
-}
-
-.ovalText {
+.textWhite {
     color: white;
-    /* Color for text inside the yellow oval */
-    margin: 10px 0;
-    /* Spacing for text */
-    text-align: center;
-    font-size: 1.3vw;
-    /* Centering text */
 }
 
-.ovalImage {
-    width: 80%;
-    height: auto;
-    margin-top: 10px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-    /* Shadow for the image */
-    border-radius: 10%;
-}
-
-.cameraIcon {
-    color: #ccc;
-    /* Gray color or any color you prefer */
-    cursor: pointer;
-    /* Indicates it's clickable */
-}
-
-.imageUploadButton {
-    background-color: #EFAC01;
-    /* Yellow background */
-    color: white;
-    /* White text */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.ldsroller,
-.ldsroller div,
-.ldsroller div:after {
-    box-sizing: border-box;
-}
-
-.ldsroller {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
-}
-
-.ldsroller div {
-    animation: ldsroller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    transform-origin: 40px 40px;
-}
-
-.ldsroller div:after {
-    content: " ";
-    display: block;
-    position: absolute;
-    width: 7.2px;
-    height: 7.2px;
-    border-radius: 50%;
-    background: currentColor;
-    margin: -3.6px 0 0 -3.6px;
-    background: black;
-    /* Light blue color */
-
-}
-
-.ldsroller div:nth-child(1) {
-    animation-delay: -0.036s;
-}
-
-.ldsroller div:nth-child(1):after {
-    top: 62.62742px;
-    left: 62.62742px;
-}
-
-.ldsroller div:nth-child(2) {
-    animation-delay: -0.072s;
-}
-
-.ldsroller div:nth-child(2):after {
-    top: 67.71281px;
-    left: 56px;
-}
-
-.ldsroller div:nth-child(3) {
-    animation-delay: -0.108s;
-}
-
-.ldsroller div:nth-child(3):after {
-    top: 70.90963px;
-    left: 48.28221px;
-}
-
-.ldsroller div:nth-child(4) {
-    animation-delay: -0.144s;
-}
-
-.ldsroller div:nth-child(4):after {
-    top: 72px;
-    left: 40px;
-}
-
-.ldsroller div:nth-child(5) {
-    animation-delay: -0.18s;
-}
-
-.ldsroller div:nth-child(5):after {
-    top: 70.90963px;
-    left: 31.71779px;
-}
-
-.ldsroller div:nth-child(6) {
-    animation-delay: -0.216s;
-}
-
-.ldsroller div:nth-child(6):after {
-    top: 67.71281px;
-    left: 24px;
-}
-
-.ldsroller div:nth-child(7) {
-    animation-delay: -0.252s;
-}
-
-.ldsroller div:nth-child(7):after {
-    top: 62.62742px;
-    left: 17.37258px;
-}
-
-.ldsroller div:nth-child(8) {
-    animation-delay: -0.288s;
-}
-
-.ldsroller div:nth-child(8):after {
-    top: 56px;
-    left: 12.28719px;
-}
-
-@keyframes ldsroller {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+.textMargin {
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
 
-    to {
-        opacity: 1;
-    }
+.linkStyle:hover {
+    text-decoration: underline;  /* Ensures the underline appears on hover */
+    text-decoration-color: white;  /* Changes the underline color to white */
+    text-decoration-thickness: 2px;  /* Makes the underline thicker */
 }
 
-.fadeIn {
-    animation: fadeIn 1s ease-out forwards;
-}
 
 
 /* Existing CSS for base styles and other components */
@@ -348,75 +105,19 @@
 
     }
 
-    .halfWidth {
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .halfWidthLeft {
-        align-items: flex-start;
-        /* Ensures left alignment for other items */
-    }
-
-    .halfWidthRight {
-        align-items: center;
-        text-align: center;
-    }
-
-    /* Specific adjustments for large text and its container text */
-    .halfWidthLeft .textLarge,
-    .halfWidthLeft .textComponent:not(.textWithIcon) {
-        text-align: center;
-        /* Center only the title and the introductory text */
-        align-items: center;
-        /* Center alignment for flex items if needed */
-        width: 100%;
-        /* Ensures full width to allow proper centering */
-    }
 
 
-    .textWithIcon {
-        justify-content: flex-start;
-        /* Keeps icon-text groups aligned left */
-        text-align: left;
-        /* Aligns text to the left within their flex container */
-        margin-left: 3%;
-    }
 
     .textComponent {
         font-size: 16px;
+        text-align: center;
+        margin-left: 0%;
     }
 
     .textLarge {
         font-size: 20px;
     }
 
-    .icon {
-        width: 5vw;
-        height: 5vw;
-        padding: 3px;
-    }
-
-    .imageUploadButton {
-        padding: 8px 16px;
-    }
-
-    .oval {
-        width: 90%;
-    }
-
-    .ovalImage {
-        width: 100%;
-    }
-
-    .ldsroller {
-        width: 60px;
-        height: 60px;
-    }
-
-    .apiDescription {
-        padding: 15px;
-    }
 
 }
 
@@ -429,13 +130,6 @@
         font-size: 20px;
     }
 
-    .sublineText {
-        font-size: 14px;
-    }
-
-    .apiDescription {
-        padding: 15px;
-    }
 
 }
 

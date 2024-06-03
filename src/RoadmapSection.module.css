@@ -182,6 +182,7 @@
         padding: 10px 0;
         /* Add padding to separate title and description visually */
         width: 100%;
+        margin-top: 50px;
         /* Use full width for better control */
     }
 
@@ -196,11 +197,6 @@
         /* Use full width for better control */
     }
 
-
-    .descriptionText {
-        margin-top: 10px;
-        /* Extra space between title and description */
-    }
 
     .textSegment {
         font-size: 18px;
@@ -230,20 +226,19 @@
         font-size: 16px;
     }
 
-    @media (max-width: 480px) {
-        .textSegment {
-            font-size: 16px;
-            /* Further reduce the font size for very small screens */
-        }
-
-        .centerBlackText,
-        .centerText,
-        .centerGrayText {
-            font-size: 16px;
-            /* Keep uniform font size across all text types */
-        }
-
+    .textSegment {
+        font-size: 16px;
+        /* Further reduce the font size for very small screens */
     }
+
+    .centerBlackText,
+    .centerText,
+    .centerGrayText {
+        font-size: 16px;
+        /* Keep uniform font size across all text types */
+    }
+
+
 
 }
 

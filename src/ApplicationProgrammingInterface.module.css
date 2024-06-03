@@ -54,47 +54,133 @@
     /* Sets the text color to yellow */
 }
 
-.imageContainer {
+.imageAndCropsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.connectingLine {
+    flex: 0 0 25%;
+    /* Flex-grow, Flex-shrink, Flex-basis */
+    height: 3px;
+    background-color: #EFAC01;
+    /* Adjust the color to fit your design */
+}
+
+.imageWrapper,
+.cropsContainer {
+    flex: 0 0 40%;
+    /* Flex-grow, Flex-shrink, Flex-basis */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-
+    border-radius: 10%;
 }
+
+.imageWrapper,
+.cropsContainer {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
 
 .imageWrapper {
+    flex: 1;
+    /* Takes half of the space */
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    border: 3px solid #EFAC01;
-    padding: 1%;
     border-radius: 10%;
 }
 
-.imageWrapper.smallImageWrapper+.smallImageWrapper {
-    margin-left: 20px;
-    /* Adjust spacing between small image wrappers */
+.cropsContainer {
+    flex: 0 0 40%;
+    /* Maintain the width */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* Align crops to the start */
+    align-items: center;
+    gap: 20px;
+    /* Maintain gap for visual clarity */
+    height: calc(2 * (8vw + 20px));
+    /* Adjust height based on three rows, assuming each image is 8vw high plus 20px gap */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    border-radius: 0%;
+    margin-right: 3%;
+
 }
 
-.imageWrapper.smallImageWrapper {
-    transition: box-shadow 0.3s ease-in-out;
-    /* Smooth transition for the shadow */
-    border-radius: 10%;
-    /* Consistent with image style */
+
+/* General scrollbar styling */
+.cropsContainer::-webkit-scrollbar {
+    width: 12px;
+    /* Slightly thicker to give a better grip */
+    background-color: transparent;
+    /* Keep the background transparent for a cleaner look */
 }
 
-.imageWrapper.smallImageWrapper:hover {
+/* Styling the handle (thumb) of the scrollbar */
+.cropsContainer::-webkit-scrollbar-thumb {
+    background-color: #EFAC01;
+    /* Vibrant yellow color for better visibility */
+    border-radius: 6px;
+    /* More pronounced rounded corners */
+    border: 3px solid #ffffff;
+    /* White border for a sleek contrast */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effects */
+}
+
+/* Hover effect for the scrollbar thumb */
+.cropsContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #d4a517;
+    /* A darker shade when hovered for an interactive feel */
+}
+
+/* Styling the track (part the thumb slides within) */
+.cropsContainer::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+    /* Light grey that matches the overall UI */
+    border-radius: 10px;
+    /* Rounded corners for the track */
+    box-shadow: inset 0 0 5px grey;
+    /* Subtle shadow for depth */
+}
+
+/* Optional: style for the scrollbar button (arrows) */
+.cropsContainer::-webkit-scrollbar-button {
+    background-color: #EFAC01;
+    /* Match the thumb color */
+    display: block;
+    height: 12px;
+    /* Slightly larger for a balanced look */
+    border-radius: 6px;
+    /* Rounded corners for the buttons */
+}
+
+/* Ensure scrollbar buttons fade in and out */
+.cropsContainer::-webkit-scrollbar-button {
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effects */
+}
+
+.cropsContainer::-webkit-scrollbar-button:hover {
+    background-color: #d4a517;
+    /* Darker shade when hovered */
+}
+
+
+.smallImageStyle:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     /* Shadow appears on hover */
 }
 
 
 /* Removes additional space for the first and last imageWrapper if necessary */
-.imageWrapper.smallImageWrapper:first-child,
-.imageWrapper.smallImageWrapper:last-child {
-    margin-right: 0;
-}
-
 
 .imageStyle,
 .smallImageStyle {
@@ -104,6 +190,10 @@
     width: 15vw;
     height: 15vw;
     border-radius: 10%;
+    border: 3px solid #EFAC01;
+    padding: 2%;
+    transition: box-shadow 0.3s ease-in-out;
+
     /* Adjust icon size */
 }
 
@@ -111,17 +201,10 @@
     font-size: 3vw;
     width: 8vw;
     height: 8vw;
+    padding: 5%;
     /* Smaller icon for the smaller section */
 }
 
-.horizontalSeparator {
-    width: 20%;
-    /* Adjusted for horizontal line */
-    height: 3px;
-    background-color: #EFAC01;
-    margin: 5vw 0;
-    /* Spacing around the separator */
-}
 
 .infoContainer {
     display: flex;
@@ -544,5 +627,6 @@
         margin: 0 auto;
         /* Center the content */
     }
-}
 
+
+}
