@@ -51,7 +51,7 @@
     width: 50%;
     /* Adjust size as needed */
     height: 70%;
-    border-radius: 10%;
+    border-radius: 10%/20%;
 }
 
 .apiImage2 {
