@@ -1,28 +1,53 @@
 /* Header.css */
 .header {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background);
+  color: var(--text);
+  border-bottom: 2px solid var(--secondary);
+  width: 100%;
+  /* Ensure the header spans the full width */
+}
+
+.contentContainer {
+  width: 80%;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #EFAC01;
-  padding: 10px 20px;
-  color: white;
-  /* Sets default text color for all text within the header */
 }
+
 
 .headerLeft {
   display: flex;
   align-items: center;
-  font-size: 1.5em;
+  font-size: 20px;
   z-index: 1000;
 }
 
 .logo {
-  width: 50px;
+  width: 30px;
   margin-right: 10px;
   border-radius: 20%;
   /* Makes the logo's borders completely round */
-  border: 2px solid white;
+  border: 2px solid #e2deef;
   /* Adds a white border around the logo */
+}
+
+.themeToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  margin-top: 3%
+    /* Use the text color variable for consistency */
+}
+
+button:focus {
+  outline: none !important;
+  /* Forces all buttons to not show an outline */
+  border: none !important;
+  /* Forces all buttons to not show a border */
 }
 
 .headerRight button {
@@ -72,6 +97,13 @@
 }
 
 @media (max-width: 768px) {
+
+  .contentContainer {
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
   .header {
     flex-direction: row;
     height: 7vh;
@@ -89,7 +121,7 @@
     /* Menu occupies the full width of the viewport */
     height: 100vh;
     /* Sufficient height to cover the viewport when open */
-    background-color: #EFAC01;
+    background-color: var(--background);
     padding: 10px;
     z-index: 20;
     transition: top 0.5s ease;
@@ -124,7 +156,4 @@
     font-size: 20px;
   }
 
-  .logo {
-    width: 40px;
-  }
 }

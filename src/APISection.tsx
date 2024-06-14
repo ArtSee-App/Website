@@ -29,8 +29,11 @@ const APISection: React.FC = () => {
                 <div className={`${styles.textComponent} ${styles.textMargin}`}>
                     Use ArtVista’s API to find art pieces similar to a given image from a vast collection. Visit the API page for benchmark results and options to use it on your data.
                 </div>
+                <div className={styles.bottomLine}></div>
 
             </div>
+
+
         </section>
     );
 };

@@ -1,12 +1,11 @@
 import React from 'react';
 import styles from './RoadmapSection.module.css';
-import tue from './assets/tue.png'; // Adjust the path as needed
-import release from './assets/release.png'; // Import the image
+import tue from './assets/tue2.png'; // Adjust the path as needed
+import release from './assets/release2.png'; // Import the image
 
 const RoadmapSection: React.FC = () => {
     return (
         <section id="roadmap" className={styles.roadmapContainer}>
-            <div className={styles.bottomLine}></div>
 
             <div className={styles.textContainer}>
                 <div className={styles.titleText}>

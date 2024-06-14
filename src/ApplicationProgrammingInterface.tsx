@@ -3,8 +3,12 @@ import Header from './HeaderAPI';
 import styles from './ApplicationProgrammingInterface.module.css';
 import { FaCamera, FaArrowRight } from 'react-icons/fa'; // Import the camera and arrow icons
 
+interface APIPageProps {
+  toggleTheme: () => void;
+  theme: string;
+}
 
-const APIPage: React.FC = () => {
+const APIPage: React.FC<APIPageProps> = ({ toggleTheme, theme }) => {
 
   const [image, setImage] = useState<string | null>(null);
   const [artwork, setArtwork] = useState({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
@@ -30,6 +34,12 @@ const APIPage: React.FC = () => {
   };
 
 
+  const truncate = (input: string, maxLength: number) => {
+    if (input.length > maxLength) {
+      return input.substring(0, maxLength - 3) + '...'; // Subtract 3 to accommodate the ellipsis
+    }
+    return input;
+  };
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedImageIndex(0);
@@ -40,6 +50,7 @@ const APIPage: React.FC = () => {
         setErrorMessage('Invalid file type. Please upload an image (JPG or PNG).');
         setImage(null);
         setIsLoading(false);
+        setCroppedImages([]);
         return;
       }
 
@@ -85,15 +96,15 @@ const APIPage: React.FC = () => {
             if (data.website_results) {
               setArtwork({
                 artist: data.website_results[0].artist,
-                title: data.website_results[0].title,
+                title: truncate(data.website_results[0].title, 40),
                 image_url: data.website_results[0].image_url,
                 score: data.scores[0],
                 artist2: data.website_results[1].artist,
-                title2: data.website_results[1].title,
+                title2: truncate(data.website_results[1].title, 40),
                 image_url2: data.website_results[1].image_url,
                 score2: data.scores[1],
                 artist3: data.website_results[2].artist,
-                title3: data.website_results[2].title,
+                title3: truncate(data.website_results[2].title, 40),
                 image_url3: data.website_results[2].image_url,
                 score3: data.scores[2]
               });
@@ -130,15 +141,15 @@ const APIPage: React.FC = () => {
       if (data.website_results) {
         setArtwork({
           artist: data.website_results[0].artist,
-          title: data.website_results[0].title,
+          title: truncate(data.website_results[0].title, 40),
           image_url: data.website_results[0].image_url,
           score: data.scores[0],
           artist2: data.website_results[1].artist,
-          title2: data.website_results[1].title,
+          title2: truncate(data.website_results[1].title, 40),
           image_url2: data.website_results[1].image_url,
           score2: data.scores[1],
           artist3: data.website_results[2].artist,
-          title3: data.website_results[2].title,
+          title3: truncate(data.website_results[2].title, 40),
           image_url3: data.website_results[2].image_url,
           score3: data.scores[2]
         });
@@ -174,8 +185,9 @@ const APIPage: React.FC = () => {
     if (croppedImages.length >= 4) {
       return {
         justifyContent: 'center',
-        border: '3px solid #EFAC01',
-        borderRadius: '5%/10%'
+        border: '3px solid var(--primary)',
+        borderRadius: '5%/10%',
+        padding: '10px',
       };
     } else {
       return {};
@@ -194,12 +206,12 @@ const APIPage: React.FC = () => {
 
     // Condition to apply a border style if there are four or more images
     if (croppedImages.length >= 4) {
-      style.border = '0px solid #EFAC01';
+      style.border = '0px solid var(--primary)';
     }
 
     // Add a shadow if the current image is the selected one
     if (index === selectedImageIndex) {
-      style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.6)';
+      style.boxShadow = '0 4px 8px var(--accent)';
     }
 
     // Return the combined style object
@@ -217,7 +229,7 @@ const APIPage: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <Header toggleTheme={toggleTheme} theme={theme} />
       <div className={styles.container} >
         <div className={styles.contentContainer}>
           <div className={styles.leftSide}>
@@ -225,7 +237,7 @@ const APIPage: React.FC = () => {
             <p className={styles.smallText}>Use <span className={styles.highlight}>ArtVista’s API</span> to find art pieces similar to a given image from a vast collection.</p>
           </div>
           <div className={styles.rightSide}>
-            <p className={styles.bigText}>How to use</p>
+            <p className={styles.bigText}>How to use it:</p>
             <p className={styles.smallText}><span className={styles.highlight}>1.</span> <span className={styles.highlight}>Upload</span> a photo of a painting.</p>
             <p className={styles.smallText}><span className={styles.highlight}>2.</span> The API will try to crop the image.</p>
             <p className={styles.smallText}><span className={styles.highlight}>3.</span> Select one of the detected paintings from the initial image.</p>

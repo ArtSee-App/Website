@@ -30,7 +30,7 @@
     height: 20vw;
     margin-bottom: 7%;
     border-radius: 10%;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 16px var(--primary);
     /* Increased shadow */
 
 }
@@ -39,9 +39,7 @@
     height: 35vw;
     /* Adjust height for image5 */
     margin-bottom: 0;
-    border-radius: 5%;
-    border: 0px solid black;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0);
+    border-radius: 10%/6%;
     /* Increased shadow */
 }
 
@@ -115,9 +113,11 @@
     /* Adjust position as needed */
     font-size: min(1.7vw, 2em);
     /* Font size adjusts based on the width of the viewport */
-    color: black;
+    color: var(--text);
+    ;
     text-align: center;
     z-index: 10;
+    padding: 10px;
     /* Ensures text is above the images */
 }
 
@@ -133,7 +133,10 @@
 
 .leftText span,
 .rightText span {
-    color: #EFAC01;
+    background: var(--accent);
+    -webkit-background-clip: text;
+    background-clip: transparent;
+    -webkit-text-fill-color: transparent;
     /* Yellow color for highlight */
     font-weight: bold;
 }
@@ -144,6 +147,7 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .leftContent {
@@ -151,8 +155,7 @@
     /* Takes up 75% of the flex container */
     font-size: 2.5em;
     /* Adjust font size as needed */
-    padding: 20px;
-    color: black;
+    color: var(--text);
 }
 
 .rightContent {
@@ -161,10 +164,10 @@
     display: flex;
     flex-direction: column;
     /* Stacks the child elements vertically */
-    align-items: flex-start;
+    align-items: flex-end;
     /* Aligns text to the start of the flex direction */
-    padding: 20px;
-    color: black;
+    color: var(--text);
+    ;
     /* Adjust font size as needed */
 }
 
@@ -193,8 +196,12 @@
 
 
 .highlight {
-    color: #EFAC01;
-    /* Sets the color of the 'Art Companion' text to yellow */
+    background: var(--accent);
+    -webkit-background-clip: text;
+    background-clip: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    /* Keeps the text bold if desired */
 }
 
 .additionalImage {
@@ -206,14 +213,49 @@
     /* Adds space between the main content and this image */
 }
 
+.featuresImages {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    /* Necessary for absolute positioning of SVG */
+    overflow: hidden;
+    /* Ensures the SVG does not overflow the container */
+}
+
+.svgBackground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    /* Ensures the SVG is behind the icons */
+}
+
+.featureIcon {
+    width: 15%;
+    /* Relative width for each icon */
+    height: auto;
+    z-index: 1;
+    border: 2px solid var(--primary);
+    border-radius: 17%;
+    /* Ensures the SVG is behind the icons */
+    /* Maintain aspect ratio */
+}
+
+
 .footerText {
     display: flex;
     width: 100%;
     /* Ensures the footer text spans the full width of the section */
     justify-content: space-evenly;
     /* Distributes the child elements evenly across the main axis */
-    padding: 20px 0;
-    color: black;
+    color: var(--text);
+    margin-top: 20px;
+
     /* Adds vertical padding for visual separation */
 }
 
@@ -224,8 +266,12 @@
     /* Centers text within each flex item */
     font-size: 2em;
     /* Adjust font size as needed */
+    background: var(--accent);
+    -webkit-background-clip: text;
+    background-clip: transparent;
+    -webkit-text-fill-color: transparent;
     font-weight: bold;
-    color: #EFAC01;
+    /* Keeps the text bold if desired */
     /* Sets the color of the 'Art Companion' text to yellow */
 }
 
@@ -236,30 +282,11 @@
     /* Centers text within each flex item */
     font-size: 1.2em;
     /* Adjust font size as needed */
-    padding: 20px;
-    margin-top: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
-.footerDescriptionItem:first-child {
-    margin-left: 6%;
-    /* Moves the first item (Scan) slightly to the right */
-}
-
-.footerDescriptionItem:last-child {
-    margin-right: 6%;
-    /* Moves the last item (Connect) slightly to the left */
-}
-
-.footerItem:first-child {
-    margin-left: 6%;
-    /* Moves the first item (Scan) slightly to the right */
-}
-
-.footerItem:last-child {
-    margin-right: 6%;
-    /* Moves the last item (Connect) slightly to the left */
-}
 
 
 .soonButton:hover {
@@ -276,24 +303,21 @@
     /* Ensures the line spans the entire width */
     height: 3px;
     /* Sets the height of the line */
-    background-color: #EFAC01;
+    background: var(--secondary);
+    margin-top: 40px;
     /* Uses the same yellow color used elsewhere */
 }
 
 @media (max-width: 768px) {
 
+    .footerItem,
     .footerDescriptionItem {
-        margin-left: -4%;
-        text-align: left;
+        font-size: 16px;
+        /* Even smaller text to fit on small screens */
     }
 
 
 
-    .mainContent {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
 
     .leftContent,
     .rightContent {
@@ -303,38 +327,10 @@
         text-align: center;
     }
 
-    .leftContent {
-        font-size: 24px;
-        /* Reducing the font size significantly for better readability on smaller screens */
-    }
-
-
-    .rightContent {
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        /* Changed from column to row */
-        align-items: center;
-        /* Aligns children vertically in the center */
-        justify-content: space-around;
-        /* Distributes space around items */
-        padding: 20px;
-        font-size: 18px;
-        color: black;
-    }
 
     .platform {
         display: flex;
         align-items: center;
-    }
-
-    .platformLogo {
-        width: 24px;
-        height: 24px;
-    }
-
-    .soonButton {
-        font-size: 18px;
     }
 
 
@@ -343,27 +339,40 @@
         /* Ensures image scales down to fit mobile screens */
     }
 
-    .bottomLine {
-        margin-top: 20px;
-        /* Adds a bit of spacing above the line */
-    }
-}
-
-/* Consider even smaller devices, under 480px */
-@media (max-width: 480px) {
-
-
-
-
+    .mainContent,
     .leftContent,
     .rightContent {
-        width: 95%;
-        /* Allows a bit more width for very narrow devices */
+        flex-direction: column;
+        /* Stack content vertically */
+        align-items: center;
+        /* Center-align the content */
+        text-align: center;
+        /* Text centered */
+        font-size: 24px;
     }
 
-    .footerItem,
-    .footerDescriptionItem {
-        font-size: 16px;
-        /* Even smaller text to fit on small screens */
+    .rightContent {
+        flex-direction: row;
+        /* Stack content vertically */
+        justify-content: center;
+
     }
+
+    .platformLogo {
+        width: 20px;
+        /* Increase logo size for visibility */
+        height: 20px;
+        /* Maintain aspect ratio */
+    }
+
+    .soonButton {
+        font-size: 14px;
+        /* Adjust button font size */
+        margin-top: 10px;
+        /* Spacing after the logo */
+    }
+
+
+
+
 }

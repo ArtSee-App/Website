@@ -1,5 +1,5 @@
 .updatesSection {
-    background: linear-gradient(to bottom right, #EFD701, #EE6400);
+    background: linear-gradient(to bottom right, var(--primary), var(--accent));
     color: #333;
     width: 100%;
     padding: 20px;
@@ -19,7 +19,7 @@
 .bottomLine {
     width: 100%;
     height: 3px;
-    background-color: white;
+    background-color: var(--secondary);
 }
 
 .rectangleContainer {
@@ -28,7 +28,6 @@
     /* Allows rectangles to wrap onto the next line on smaller screens */
     justify-content: space-around;
     margin-top: 40px;
-    margin-bottom: 50px;
 }
 
 .rectangle {
@@ -39,12 +38,12 @@
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 20px var(--primary);
     cursor: pointer;
 }
 
 .rectangle:hover {
-    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 40px var(--secondary);
 }
 
 .rectangleImage {
@@ -56,11 +55,11 @@
 .rectangleText {
     font-size: 1em;
     text-align: center;
-    color: #333;
+    color: black;
 }
 
 .yellowText {
-    color: #EFAC01;
+    color: var(--accent);
     font-weight: bold;
     font-size: 1.5em;
 }

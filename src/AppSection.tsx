@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './AppSection.module.css';
 import androidLogo from './assets/android.png'; // Adjust the path as needed
 import iosLogo from './assets/ios.png'; // Adjust the path as needed
-import appinfo from './assets/appinfo.png'; // Import the image
 import image1 from './assets/image1.png'; // Replace with the correct paths for the images
 import image2 from './assets/image2.png';
 import image3 from './assets/image3.png';
@@ -12,6 +11,9 @@ import image6 from './assets/image6.png';
 import image7 from './assets/image7.png';
 import image8 from './assets/image8.png';
 import image9 from './assets/image9.png';
+import scan from './assets/scan.png';
+import discover from './assets/discover.png';
+import connect from './assets/connect.png';
 
 const AppSection: React.FC = () => {
     return (
@@ -51,7 +53,17 @@ const AppSection: React.FC = () => {
                 </div>
 
             </div>
-            <img src={appinfo} alt="Additional Visual" className={styles.additionalImage} />
+            <div className={styles.featuresImages}>
+                <div className={styles.svgBackground}>
+                    <svg viewBox="0 0 100 10" preserveAspectRatio="none" style={{ width: '100%', height: '100%' }}>
+                        <path d="M 0 5 Q 12.5 0 25 5 T 50 5 T 75 5 T 100 5 Q 87.5 10 75 5 T 50 5 T 25 5 T 0 5" fill="transparent" style={{ stroke: "var(--primary)", strokeWidth: "1" }} />
+                    </svg>
+                </div>
+                <img src={scan} alt="Scan Artworks" className={styles.featureIcon} />
+                <img src={discover} alt="Discover Art" className={styles.featureIcon} />
+                <img src={connect} alt="Connect with Artists" className={styles.featureIcon} />
+            </div>
+
             <div className={styles.footerText}>
                 <span className={styles.footerItem}>Scan</span>
                 <span className={styles.footerItem}>Discover</span>

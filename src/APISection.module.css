@@ -1,12 +1,3 @@
-.bottomLine {
-    width: 100%;
-    /* Ensures the line spans the entire width */
-    height: 3px;
-    /* Sets the height of the line */
-    background-color: #EFAC01;
-    /* Uses the same yellow color used elsewhere */
-}
-
 .sectionContainer {
     display: flex;
     flex-direction: column;
@@ -14,19 +5,16 @@
     width: 80%;
     margin: 0 auto;
     /* Center the content */
-    margin-bottom: -100px;
-    margin-top: 50px;
+    margin-top: 40px;
 
 }
 
 .contentContainer {
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(to bottom, #EFCD01 0%, #EE6C00 100%);
+    background: linear-gradient(to bottom, var(--primary) 0%, var(--accent) 100%);
     /* Example gradient */
     border-radius: 2%/15%;
-    margin-right: 3%;
-    margin-left: 3%;
     margin-bottom: 20px;
 }
 
@@ -64,21 +52,20 @@
 
 
 .highlight {
-    color: #EFAC01;
+    color: var(--accent);
     /* Yellow color for highlighted words */
 }
 
 
 .textComponent {
     margin-bottom: 20px;
-    color: black;
+    color: var(--text);
     font-size: 1.2em;
 }
 
 .textLarge {
     font-size: 2em;
     font-weight: bold;
-    margin-left: 3%;
     /* Larger text size */
 }
 
@@ -91,10 +78,6 @@
     color: white;
 }
 
-.textMargin {
-    margin-left: 3%;
-    margin-right: 3%;
-}
 
 
 
@@ -107,14 +90,25 @@
     /* Makes the underline thicker */
 }
 
+.textMargin {
+    text-align: left;
+}
 
+.bottomLine {
+    width: 100%;
+    /* Ensures the line spans the entire width */
+    height: 3px;
+    /* Sets the height of the line */
+    background: var(--secondary);
+    margin-top: 20px;
+    /* Uses the same yellow color used elsewhere */
+}
 
 /* Existing CSS for base styles and other components */
 
 @media (max-width: 768px) {
     .sectionContainer {
         flex-direction: column;
-        margin-bottom: -29%;
 
     }
 
@@ -124,7 +118,6 @@
     .textComponent {
         font-size: 16px;
         text-align: center;
-        margin-left: 0%;
     }
 
     .textLarge {
@@ -136,8 +129,7 @@
         flex-direction: column;
         align-items: center;
         padding: 10px;
-        margin: 10px 3%;
-        border-radius: 10%/10%;
+        border-radius: 5%/8%;
     }
 
     .leftContent,
@@ -179,12 +171,13 @@
     }
 
     .textMargin {
-        margin-left: 3%;
-        margin-right: 3%;
-        margin-top: 20px;
+        text-align: left;
     }
 
+
 }
+
+
 
 @media (max-width: 480px) {
     .textComponent {

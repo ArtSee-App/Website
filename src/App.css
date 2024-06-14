@@ -1,6 +1,16 @@
 /* App.css - Global styles and resets */
-
 /* Reset some basic elements */
+
+:root {
+  --text: #F0ECF4;
+  /* Default dark theme text color */
+  --background: #050406;
+  /* Default dark theme background color */
+  --primary: #314263;
+  --secondary: #1F1D30;
+  --accent: #2F8FAC;
+}
+
 html,
 body,
 #root {
@@ -8,7 +18,6 @@ body,
   padding: 0;
   width: 100%;
   height: 100%;
-  /* You can remove height if you don't want the app to take full height */
   overflow-x: hidden;
   /* Prevents horizontal scroll */
 }
@@ -20,8 +29,8 @@ body {
   min-height: 100vh;
   /* Uses full view height */
   font-family: Arial, sans-serif;
-  background-color: white;
-  /* Example font */
+  background-color: var(--background);
+  /* Uses the --background variable */
 }
 
 /* Additional global styles */
@@ -32,9 +41,42 @@ body {
   /* Includes padding and border in the element's total width and height */
 }
 
-/* Your existing or additional global styles here */
-
-
 html {
   scroll-behavior: smooth;
+}
+
+/* Your existing or additional global styles here */
+
+/* Styles for the scrollbar track (part the thumb slides within) */
+::-webkit-scrollbar {
+  width: 10px;
+  /* Adjust width for vertical scrollbars */
+  height: 10px;
+  /* Adjust height for horizontal scrollbars */
+}
+
+/* Styles for the scrollbar thumb (the part that you drag) */
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  /* Thumb color */
+  border-radius: 5px;
+  /* Adds rounded corners to the thumb */
+  border: 2px solid var(--secondary);
+  /* Optional: Adds a border around the thumb */
+}
+
+/* Styles for the scrollbar track */
+::-webkit-scrollbar-track {
+  background: var(--background);
+  /* Track color */
+  border-radius: 5px;
+  /* Optional: Adds rounded corners to the track */
+}
+
+/* Firefox scrollbar styles */
+* {
+  scrollbar-width: thin;
+  /* "auto" or "thin" */
+  scrollbar-color: var(--primary) var(--background);
+  /* thumb and track color */
 }

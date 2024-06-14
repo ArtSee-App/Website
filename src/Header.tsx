@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import logo from './assets/logo.jpg'; // Assuming the logo is stored here
 import styles from './Header.module.css';
-import { FaBars } from 'react-icons/fa'; // You need to install react-icons if you haven't
+import { FaBars, FaSun, FaMoon } from 'react-icons/fa'; // Adding FaSun and FaMoon
 
 interface HeaderProps {
     scrollTo: (id: string) => void;
+    toggleTheme: () => void;
+    theme: string;  // Add this line to indicate the current theme
 }
 
-const Header: React.FC<HeaderProps> = ({ scrollTo }) => {
+const Header: React.FC<HeaderProps> = ({ scrollTo, toggleTheme, theme }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -16,21 +18,27 @@ const Header: React.FC<HeaderProps> = ({ scrollTo }) => {
 
     return (
         <div className={styles.header}>
-            <div className={styles.headerLeft}>
-                <img src={logo} alt="Logo" className={styles.logo} />
-                <span>ArtVista</span>
-            </div>
-            <div className={styles.menuIcon} onClick={toggleMenu}>
-                <FaBars />
-            </div>
-            <div className={`${styles.headerRight} ${isMenuOpen ? styles.menuOpen : ''}`}>
-                <button onClick={() => { scrollTo("app"); toggleMenu(); }}>App</button>
-                <button onClick={() => { scrollTo("api"); toggleMenu(); }}>API</button>
-                <button onClick={() => { scrollTo("roadmap"); toggleMenu(); }}>Roadmap</button>
-                <button onClick={() => { scrollTo("updates"); toggleMenu(); }}>Updates</button>
-                <button onClick={() => { scrollTo("aboutcontact"); toggleMenu(); }}>About & Contact Us</button>
+            <div className={styles.contentContainer}>
+                <div className={styles.headerLeft}>
+                    <img src={logo} alt="Logo" className={styles.logo} />
+                    <span>ArtVista</span>
+                    <button onClick={toggleTheme} className={styles.themeToggle}>
+                        {theme === 'dark' ? <FaSun /> : <FaMoon />}
+                    </button>
+                </div>
+                <div className={styles.menuIcon} onClick={toggleMenu}>
+                    <FaBars />
+                </div>
+                <div className={`${styles.headerRight} ${isMenuOpen ? styles.menuOpen : ''}`}>
+                    <button onClick={() => { scrollTo("app"); toggleMenu(); }}>App</button>
+                    <button onClick={() => { scrollTo("api"); toggleMenu(); }}>API</button>
+                    <button onClick={() => { scrollTo("roadmap"); toggleMenu(); }}>Roadmap</button>
+                    <button onClick={() => { scrollTo("updates"); toggleMenu(); }}>Updates</button>
+                    <button onClick={() => { scrollTo("aboutcontact"); toggleMenu(); }}>About & Contact Us</button>
+                </div>
             </div>
         </div>
+
     );
 };
 
