@@ -188,7 +188,7 @@
 
 
     .textSegment {
-        font-size: 18px;
+        font-size: 16px;
         /* Slightly smaller than on desktop to fit more content on the screen */
         text-align: center;
         /* Centers the text to match the alignment of the headers */
@@ -197,36 +197,9 @@
     .centerBlackText,
     .centerText,
     .centerGrayText {
-        font-size: 18px;
+        font-size: 16px;
         /* Uniform font size for all centered texts */
     }
 
 }
 
-/* Further adjustments for very small devices */
-@media (max-width: 480px) {
-
-    .titleText {
-        font-size: 20px;
-        /* Further reduce font size for smaller devices */
-    }
-
-    .descriptionText {
-        font-size: 16px;
-    }
-
-    .textSegment {
-        font-size: 16px;
-        /* Further reduce the font size for very small screens */
-    }
-
-    .centerBlackText,
-    .centerText,
-    .centerGrayText {
-        font-size: 16px;
-        /* Keep uniform font size across all text types */
-    }
-
-
-
-}

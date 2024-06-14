@@ -112,18 +112,10 @@
 
     }
 
-
-
-
     .textComponent {
         font-size: 16px;
         text-align: center;
     }
-
-    .textLarge {
-        font-size: 20px;
-    }
-
 
     .contentContainer {
         flex-direction: column;
@@ -161,12 +153,12 @@
     .textComponent {
         text-align: center;
         /* Center-align text for better readability */
-        font-size: 14px;
+        font-size: 16px;
         /* Adjust font size for better legibility */
     }
 
     .textLarge {
-        font-size: 18px;
+        font-size: 20px;
         /* Increase font size of large text slightly */
     }
 
@@ -177,16 +169,3 @@
 
 }
 
-
-
-@media (max-width: 480px) {
-    .textComponent {
-        font-size: 16px;
-    }
-
-    .textLarge {
-        font-size: 20px;
-    }
-
-
-}
