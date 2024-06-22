@@ -336,7 +336,7 @@ const APIPage: React.FC<APIPageProps> = ({ toggleTheme, theme }) => {
 
 
         <div className={styles.resultsContainer}>
-          <p className={styles.resultsHeading}>Use our pattern recognition algorithms in your business - <span className={styles.highlight}>soon to be anounced</span></p>
+          <p className={styles.resultsHeading}>Use our pattern recognition algorithms in your business - <span className={styles.highlight}>soon to be announced</span></p>
           <p className={styles.resultsText}>Our technology isn’t limited to paintings and artworks. Reach out to discover how our models can enhance quality control in manufacturing, streamline logistics operations, or optimize inventory management in retail and many more.</p>
         </div>
       </div>
