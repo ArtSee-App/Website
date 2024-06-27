@@ -111,7 +111,7 @@
     /* Set each text block to occupy one-fourth of the container width */
     top: 80%;
     /* Adjust position as needed */
-    font-size: min(1.7vw, 2em);
+    font-size: min(1.7vw, 2rem);
     /* Font size adjusts based on the width of the viewport */
     color: var(--text);
     ;
@@ -153,7 +153,7 @@
 .leftContent {
     flex: 3;
     /* Takes up 75% of the flex container */
-    font-size: 2.5em;
+    font-size: 2.5rem;
     /* Adjust font size as needed */
     color: var(--text);
 }
@@ -177,9 +177,9 @@
 }
 
 .platformLogo {
-    width: 1em;
+    width: 1rem;
     /* Adjust size as needed */
-    height: 1em;
+    height: 1rem;
     /* Adjust size as needed */
     /* Space between logo and text */
 }
@@ -190,7 +190,7 @@
     color: inherit;
     cursor: pointer;
     padding: 5px 10px;
-    font-size: 1em;
+    font-size: 1rem;
     outline: none;
 }
 
@@ -264,7 +264,7 @@
     /* Each item will take up equal space */
     text-align: center;
     /* Centers text within each flex item */
-    font-size: 2em;
+    font-size: 2rem;
     /* Adjust font size as needed */
     background: var(--accent);
     -webkit-background-clip: text;
@@ -280,7 +280,7 @@
     /* Each item will take up equal space */
     text-align: center;
     /* Centers text within each flex item */
-    font-size: 1.2em;
+    font-size: 1.2rem;
     /* Adjust font size as needed */
     padding-left: 20px;
     padding-right: 20px;
@@ -310,14 +310,14 @@
 
 @media (max-width: 768px) {
 
-    .footerItem,
-    .footerDescriptionItem {
-        font-size: 16px;
-        /* Even smaller text to fit on small screens */
+    .footerItem {
+        font-size: 1.25rem;
     }
 
-
-
+    .footerDescriptionItem {
+        font-size: 1rem;
+        /* Even smaller text to fit on small screens */
+    }
 
     .leftContent,
     .rightContent {
@@ -348,7 +348,7 @@
         /* Center-align the content */
         text-align: center;
         /* Text centered */
-        font-size: 24px;
+        font-size: 1.5rem;
     }
 
     .rightContent {
@@ -359,14 +359,14 @@
     }
 
     .platformLogo {
-        width: 20px;
+        width: 1.25rem;
         /* Increase logo size for visibility */
-        height: 20px;
+        height: 1.25rem;
         /* Maintain aspect ratio */
     }
 
     .soonButton {
-        font-size: 14px;
+        font-size: 0.875rem;
         /* Adjust button font size */
         margin-top: 10px;
         /* Spacing after the logo */

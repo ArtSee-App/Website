@@ -11,7 +11,7 @@
 .headingText {
     color: #FFFFFF;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 2rem;
     text-align: flex-start;
     margin-left: 40px;
 }
@@ -53,7 +53,7 @@
 }
 
 .rectangleText {
-    font-size: 1em;
+    font-size: 1rem;
     text-align: center;
     color: black;
 }
@@ -61,7 +61,7 @@
 .yellowText {
     color: var(--accent);
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.5rem;
 }
 
 .viewAllUpdatesLink {
@@ -76,7 +76,7 @@
     color: white;
     text-decoration: none;
     cursor: pointer;
-    font-size: 2em;
+    font-size: 2rem;
     ;
     /* Smaller font size for mobile */
 }
@@ -91,16 +91,16 @@
     }
 
     .rectangleText {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .yellowText {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 
 
     .headingText {
-        font-size: 24px;
+        font-size: 1.5rem;
         /* Smaller font size for headings */
         text-align: center;
         /* Center align the headings */
@@ -109,7 +109,7 @@
     }
 
     .viewAllUpdatesText {
-        font-size: 20px;
+        font-size: 1.25rem;
         /* Adjust font size for better readability on small devices */
     }
 }

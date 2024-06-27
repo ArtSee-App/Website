@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from './assets/logo.jpg'; // Assuming the logo is stored here
 import styles from './Header.module.css';
-import { FaBars, FaSun, FaMoon } from 'react-icons/fa'; // Adding FaSun and FaMoon
+import { FaBars, FaSun, FaMoon, FaTimes } from 'react-icons/fa'; // Import FaTimes
 
 interface HeaderProps {
     scrollTo: (id: string) => void;
@@ -27,7 +27,8 @@ const Header: React.FC<HeaderProps> = ({ scrollTo, toggleTheme, theme }) => {
                     </button>
                 </div>
                 <div className={styles.menuIcon} onClick={toggleMenu}>
-                    <FaBars />
+                    <FaBars className={`${styles.transitionIcon} ${isMenuOpen ? styles.hideIcon : ''}`} />
+                    <FaTimes className={`${styles.transitionIcon} ${!isMenuOpen ? styles.hideIcon : ''}`} />
                 </div>
                 <div className={`${styles.headerRight} ${isMenuOpen ? styles.menuOpen : ''}`}>
                     <button onClick={() => { scrollTo("app"); toggleMenu(); }}>App</button>

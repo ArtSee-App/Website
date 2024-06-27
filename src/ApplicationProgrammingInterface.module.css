@@ -40,7 +40,7 @@
 }
 
 .bigText {
-    font-size: 2em;
+    font-size: 2rem;
     /* Larger font size for big text */
     font-weight: bold;
     color: var(--text);
@@ -48,7 +48,7 @@
 }
 
 .smallText {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     /* Smaller font size for details */
     margin-top: -3%;
     color: var(--text);
@@ -165,7 +165,7 @@
 .infoText {
     display: flex;
     align-items: center;
-    font-size: 1em;
+    font-size: 1rem;
     color: var(--text);
     margin-right: 10px;
 }
@@ -177,9 +177,9 @@
     /* Space between the icon and text */
     flex-shrink: 0;
     /* Prevents the icon from shrinking */
-    width: 2em;
+    width: 2rem;
     /* Fixed width of the icon */
-    height: 2em;
+    height: 2rem;
     /* Fixed height of the icon */
     display: flex;
     justify-content: center;
@@ -194,7 +194,7 @@
     cursor: pointer;
     /* Changes the cursor to indicate clickable item */
     transition: text-decoration 0.3s;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     /* Smooth transition for the text decoration */
 }
 
@@ -245,7 +245,7 @@
     margin: 2% 0;
     /* Spacing for text */
     text-align: center;
-    font-size: min(1.3vw, 1.2em);
+    font-size: min(1.3vw, 1.2rem);
     /* Centering text */
 }
 
@@ -274,7 +274,7 @@
 }
 
 .ovalTextBig {
-    font-size: min(1.5vw, 1.5em);
+    font-size: min(1.5vw, 1.5rem);
 
 }
 
@@ -299,7 +299,7 @@
     /* Space between text and line */
     font-weight: bold;
     color: var(--text);
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 .errorText {
@@ -462,12 +462,12 @@
 }
 
 .resultsHeading {
-    font-size: 2em;
+    font-size: 2rem;
     color: var(--text);
 }
 
 .resultsText {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     color: var(--text);
     /* Smaller font size for the detailed text */
 }
@@ -480,13 +480,13 @@
         /* Ensure it spans the full width of its container */
         text-align: center;
         /* Center the text inside bigText */
-        font-size: 20px;
+        font-size: 1.25rem;
         font-weight: bold;
         color: var(--text);
     }
 
     .smallText {
-        font-size: 16px;
+        font-size: 1rem;
         margin-top: -3%;
         color: var(--text);
         text-align: left;
@@ -556,24 +556,24 @@
     }
 
     .resultsHeading {
-        font-size: 20px;
+        font-size: 1.25rem;
         text-align: left;
     }
 
     .resultsText {
-        font-size: 16px;
+        font-size: 1rem;
         text-align: left;
     }
 
 
     .infoText span {
-        font-size: 16px;
+        font-size: 1rem;
         /* Smooth transition for the text decoration */
     }
 
 
     .sublineText {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 
 

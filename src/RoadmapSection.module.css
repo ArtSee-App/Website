@@ -21,7 +21,7 @@
 .titleText {
     flex: 1;
     /* Takes 1/4 of the row */
-    font-size: 2em;
+    font-size: 2rem;
     /* Adjust font size as needed */
     color: var(--text);
     font-weight: bold;
@@ -30,7 +30,7 @@
 .descriptionText {
     flex: 3;
     /* Takes 3/4 of the row */
-    font-size: 1.5em;
+    font-size: 1.5rem;
     /* Adjust font size as needed */
     padding: 20px;
     text-align: center;
@@ -126,7 +126,7 @@
     /* Each text takes up equal space */
     margin: 0 20px;
     /* Adds horizontal space between the text segments */
-    font-size: 1.2em;
+    font-size: 1.2rem;
     /* Appropriate text size */
     text-align: justify;
     /* Justifies the text for better readability */
@@ -173,14 +173,14 @@
     }
 
     .titleText {
-        font-size: 20px;
+        font-size: 1.25rem;
         /* Add padding to separate title and description visually */
         width: 100%;
         /* Use full width for better control */
     }
 
     .descriptionText {
-        font-size: 16px;
+        font-size: 1rem;
         width: 100%;
         margin-top: 10px;
         /* Use full width for better control */
@@ -188,7 +188,7 @@
 
 
     .textSegment {
-        font-size: 16px;
+        font-size: 1rem;
         /* Slightly smaller than on desktop to fit more content on the screen */
         text-align: center;
         /* Centers the text to match the alignment of the headers */
@@ -197,7 +197,7 @@
     .centerBlackText,
     .centerText,
     .centerGrayText {
-        font-size: 16px;
+        font-size: 1rem;
         /* Uniform font size for all centered texts */
     }
 

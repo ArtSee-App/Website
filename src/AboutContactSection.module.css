@@ -6,7 +6,7 @@
 
 .header {
     /* Adjust the value as needed to push it more to the right */
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: bold;
     color: var(--text);
 }
@@ -21,7 +21,7 @@
     flex: 3;
     /* Takes up 3/4 of the space */
     /* Optional: adds some padding between the text and the image */
-    font-size: 1.5em;
+    font-size: 1.5rem;
     margin-top: 8%;
     color: var(--text);
 }
@@ -83,13 +83,13 @@
     /* Space between the image and the text */
     text-align: center;
     color: var(--text);
-    font-size: 1.2em;
+    font-size: 1.2rem;
     /* Centers the text below the image */
 }
 
 
 .bigText {
-    font-size: 1.5em;
+    font-size: 1.5rem;
 
     /* Customize the color as needed */
 }
@@ -109,7 +109,7 @@
 .contactText {
     flex: 1;
     /* Takes up half of the space in the container */
-    font-size: 1.5em;
+    font-size: 1.5rem;
     /* Adjust size as necessary */
     padding-right: 20px;
     margin-top: 7%;
@@ -139,7 +139,7 @@
     /* Slightly less than full width to account for padding/margins */
     padding: 8px;
     /* Spacing above and below each input */
-    font-size: 1em;
+    font-size: 1rem;
     /* Larger font size for better readability */
     border: 2px solid var(--primary);
     background-color: lightgray;
@@ -160,7 +160,7 @@
 .textareaField {
     width: 100%;
     padding: 8px;
-    font-size: 1em;
+    font-size: 1rem;
     border: 2px solid var(--primary);
     height: 100px;
     /* Larger height for message box */
@@ -173,7 +173,7 @@
 .inputHalf {
     width: 50%;
     /* Half width minus a little to account for padding */
-    font-size: 1em;
+    font-size: 1rem;
     border: 2px solid var(--primary);
     border-radius: 4px;
 }
@@ -194,13 +194,13 @@
     }
 
     .header {
-        font-size: 24px;
+        font-size: 1.5rem;
     }
 
 
     .textSection,
     .contactText {
-        font-size: 16px;
+        font-size: 1rem;
         /* Adjusts font size for smaller screens */
         padding: 0 10px;
         /* Adds padding to maintain spacing from edges */
@@ -237,13 +237,13 @@
     .teamText,
     .rectangleText,
     .contactText {
-        font-size: 16px;
+        font-size: 1rem;
         /* Reduces font size for readability */
     }
 
     .inputField,
     .textareaField {
-        font-size: 14px;
+        font-size: 0.875rem;
         width: 60vw;
         /* Ensures form elements use full available width */
         /* Adds space between form elements */
@@ -263,7 +263,7 @@
     }
 
     .bigText {
-        font-size: 18px;
+        font-size: 1.125rem;
         /* Adjusts larger text to fit smaller screens nicely */
     }
 

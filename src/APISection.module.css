@@ -60,11 +60,11 @@
 .textComponent {
     margin-bottom: 20px;
     color: var(--text);
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 .textLarge {
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: bold;
     /* Larger text size */
 }
@@ -113,7 +113,7 @@
     }
 
     .textComponent {
-        font-size: 16px;
+        font-size: 1rem;
         text-align: center;
     }
 
@@ -153,12 +153,12 @@
     .textComponent {
         text-align: center;
         /* Center-align text for better readability */
-        font-size: 16px;
+        font-size: 1rem;
         /* Adjust font size for better legibility */
     }
 
     .textLarge {
-        font-size: 20px;
+        font-size: 1.25rem;
         /* Increase font size of large text slightly */
     }
 
@@ -168,4 +168,3 @@
 
 
 }
-
