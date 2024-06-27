@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import logo from './assets/logo.jpg'; // Assuming the logo is stored here
 import styles from './HeaderAPI.module.css';
-import {FaSun, FaMoon } from 'react-icons/fa'; // Adding FaSun and FaMoon
+import { FaSun, FaMoon } from 'react-icons/fa'; // Adding FaSun and FaMoon
 import { Link } from 'react-router-dom'; // Import Link
 
 interface HeaderProps {

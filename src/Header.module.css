@@ -103,13 +103,16 @@ button:focus {
     display: block;
     margin-left: auto;
     z-index: 1000;
-    position: relative; /* Add relative positioning for the container */
+    position: relative;
+    /* Add relative positioning for the container */
   }
 
   .transitionIcon {
     transition: opacity 0.5s ease, transform 0.5s ease;
-    position: absolute; /* Ensure both icons have absolute positioning */
-    transform: translate(-50%, -50%); /* Adjust positioning to be truly centered */
+    position: absolute;
+    /* Ensure both icons have absolute positioning */
+    transform: translate(-100%, -50%);
+    /* Adjust positioning to be truly centered */
   }
 
   .hideIcon {
