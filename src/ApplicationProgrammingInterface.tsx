@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Header from './HeaderAPI';
 import styles from './ApplicationProgrammingInterface.module.css';
 import { FaCamera, FaArrowRight } from 'react-icons/fa'; // Import the camera and arrow icons
+import image1 from './assets/randomphoto1.jpg'; // Replace with the correct paths for the images
+import image2 from './assets/randomphoto2.jpg';
+import image3 from './assets/randomphoto3.jpg';
 
 interface APIPageProps {
   toggleTheme: () => void;
@@ -41,8 +44,114 @@ const APIPage: React.FC<APIPageProps> = ({ toggleTheme, theme }) => {
     return input;
   };
 
+  const useRandomImage = async () => {
+    const images = [image1, image2, image3]; // Array of imported images
+    const randomIndex = Math.floor(Math.random() * images.length); // Generate a random index
+    const selectedImage = images[randomIndex]; // Select the image from the array
+    handleImageUpload(selectedImage);
+  };
+
+  const handleImageUpload = async (imagePath: string) => {
+    setIsLoading(true);
+    setImage(imagePath); // Set the image path state
+    setErrorMessage('');
+
+    try {
+      const imageFetch = await fetch(imagePath);
+      const imageBlob = await imageFetch.blob();
+      const fileExt = imagePath.split('.').pop(); // Get the file extension from the image source
+      const fileType = fileExt === 'jpg' ? 'image/jpeg' : 'image/png';
+      const file = new File([imageBlob], `randomImage.${fileExt}`, { type: fileType });
+      handleImageFile(file);
+    } catch (error) {
+      console.error('Failed to process image:', error);
+      setErrorMessage('Failed to process the image.');
+      setIsLoading(false);
+    }
+  };
+
+  const handleImageFile = async (file: File) => {
+    setIsLoading(true);
+    setErrorMessage('');
+    const reader = new FileReader();
+
+    reader.onload = async (ev: ProgressEvent<FileReader>) => {
+      if (ev.target?.result) {
+        setImage(ev.target.result as string);  // Set the original image
+        const formData = new FormData();
+        formData.append('file', file);  // Append the original file to FormData
+
+        try {
+          const bboxResponse = await fetch(import.meta.env.VITE_APIBBOX_URL, {
+            method: 'POST',
+            body: formData,
+          });
+          const bboxes = await bboxResponse.json();
+
+          if (bboxes.length > 0) {
+            const crops = await Promise.all(bboxes.map((bbox: { bbox: { w: number; h: number; x: number; y: number; }; }) => cropImage(ev.target?.result as string, bbox.bbox)));
+            setCroppedImages(crops);
+
+            // Convert the first cropped image data URL to a Blob for uploading
+            const firstCropBlob = await fetch(crops[0]).then(r => r.blob());
+            const croppedFile = new File([firstCropBlob], 'croppedImage.jpg', { type: 'image/jpeg' });
+
+            // Clear the FormData and append the cropped image file
+            formData.delete('file');
+            formData.append('file', croppedFile);
+          } else {
+            // No bounding boxes, use the original image
+            setCroppedImages([ev.target.result as string]);
+          }
+
+          // Fetch artwork details using either the cropped image or the original image
+          const artResponse = await fetch(import.meta.env.VITE_API_URL, {
+            method: 'POST',
+            body: formData,
+          });
+          const data = await artResponse.json();
+          if (data.website_results) {
+            setArtwork({
+              artist: data.website_results[0].artist,
+              title: truncate(data.website_results[0].title, 40),
+              image_url: data.website_results[0].image_url,
+              score: data.scores[0],
+              artist2: data.website_results[1].artist,
+              title2: truncate(data.website_results[1].title, 40),
+              image_url2: data.website_results[1].image_url,
+              score2: data.scores[1],
+              artist3: data.website_results[2].artist,
+              title3: truncate(data.website_results[2].title, 40),
+              image_url3: data.website_results[2].image_url,
+              score3: data.scores[2]
+            });
+          } else {
+            setArtwork({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
+          }
+          setIsLoading(false);
+        } catch (error) {
+          console.error('Error processing image:', error);
+          setErrorMessage('Invalid file type. Please upload an image (JPG or PNG).');
+          setImage(null);
+          setIsLoading(false);
+          setCroppedImages([]);
+        }
+      }
+    };
+
+    reader.onerror = (error) => {
+      console.error('Error reading file:', error);
+      setImage(null);
+      setIsLoading(false);
+      setCroppedImages([]);
+      setErrorMessage('Error reading file');
+    };
+
+    reader.readAsDataURL(file);
+  };
+
+
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedImageIndex(0);
     const file = e.target.files && e.target.files[0];
     if (file) {
       const validTypes = ['image/jpeg', 'image/png'];
@@ -53,73 +162,9 @@ const APIPage: React.FC<APIPageProps> = ({ toggleTheme, theme }) => {
         setCroppedImages([]);
         return;
       }
-
-      setIsLoading(true);
-      setErrorMessage('');
-      const reader = new FileReader();
-      reader.onload = async (ev: ProgressEvent<FileReader>) => {
-        if (ev.target?.result) {
-          setImage(ev.target.result as string);  // Set the original image
-          const formData = new FormData();
-          formData.append('file', file);  // Append the original file to FormData
-
-          try {
-            const bboxResponse = await fetch(import.meta.env.VITE_APIBBOX_URL, {
-              method: 'POST',
-              body: formData,
-            });
-            const bboxes = await bboxResponse.json();
-
-            if (bboxes.length > 0) {
-              const crops = await Promise.all(bboxes.map((bbox: { bbox: { w: number; h: number; x: number; y: number; }; }) => cropImage(ev.target?.result as string, bbox.bbox)));
-              setCroppedImages(crops);
-
-              // Convert the first cropped image data URL to a Blob for uploading
-              const firstCropBlob = await fetch(crops[0]).then(r => r.blob());
-              const croppedFile = new File([firstCropBlob], 'croppedImage.jpg', { type: 'image/jpeg' });
-
-              // Clear the FormData and append the cropped image file
-              formData.delete('file');
-              formData.append('file', croppedFile);
-            } else {
-              // No bounding boxes, use the original image
-              setCroppedImages([ev.target.result as string]);
-            }
-
-            // Fetch artwork details using either the cropped image or the original image
-            const artResponse = await fetch(import.meta.env.VITE_API_URL, {
-              method: 'POST',
-              body: formData,
-            });
-            const data = await artResponse.json();
-            console.log(data);
-            if (data.website_results) {
-              setArtwork({
-                artist: data.website_results[0].artist,
-                title: truncate(data.website_results[0].title, 40),
-                image_url: data.website_results[0].image_url,
-                score: data.scores[0],
-                artist2: data.website_results[1].artist,
-                title2: truncate(data.website_results[1].title, 40),
-                image_url2: data.website_results[1].image_url,
-                score2: data.scores[1],
-                artist3: data.website_results[2].artist,
-                title3: truncate(data.website_results[2].title, 40),
-                image_url3: data.website_results[2].image_url,
-                score3: data.scores[2]
-              });
-            } else {
-              setArtwork({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
-            }
-            setIsLoading(false);
-          } catch (error) {
-            console.error('Error processing image:', error);
-            setIsLoading(false);
-          }
-        }
-      };
-      reader.readAsDataURL(file);
+      handleImageFile(file);
     }
+    setSelectedImageIndex(0);
   };
 
   const fetchArtworkDetails = async (imageSrc: RequestInfo | URL, index: number) => {
@@ -270,7 +315,7 @@ const APIPage: React.FC<APIPageProps> = ({ toggleTheme, theme }) => {
             <FaArrowRight className={styles.arrowIcon} />
             <span>Use your photo</span>
           </div>
-          <div className={styles.infoText}>
+          <div className={styles.infoText} onClick={useRandomImage}>
             <FaArrowRight className={styles.arrowIcon} />
             <span>Try the random photo</span>
           </div>
