@@ -110,19 +110,20 @@ const APIPage: React.FC<APIPageProps> = ({ toggleTheme, theme }) => {
             body: formData,
           });
           const data = await artResponse.json();
+          console.log(data.website_results)
           if (data.website_results) {
             setArtwork({
               artist: data.website_results[0].artist,
               title: truncate(data.website_results[0].title, 40),
-              image_url: data.website_results[0].image_url,
+              image_url: data.website_results[0].spaces_dir,
               score: data.scores[0],
               artist2: data.website_results[1].artist,
               title2: truncate(data.website_results[1].title, 40),
-              image_url2: data.website_results[1].image_url,
+              image_url2: data.website_results[1].spaces_dir,
               score2: data.scores[1],
               artist3: data.website_results[2].artist,
               title3: truncate(data.website_results[2].title, 40),
-              image_url3: data.website_results[2].image_url,
+              image_url3: data.website_results[2].spaces_dir,
               score3: data.scores[2]
             });
           } else {
@@ -187,15 +188,15 @@ const APIPage: React.FC<APIPageProps> = ({ toggleTheme, theme }) => {
         setArtwork({
           artist: data.website_results[0].artist,
           title: truncate(data.website_results[0].title, 40),
-          image_url: data.website_results[0].image_url,
+          image_url: data.website_results[0].spaces_dir,
           score: data.scores[0],
           artist2: data.website_results[1].artist,
           title2: truncate(data.website_results[1].title, 40),
-          image_url2: data.website_results[1].image_url,
+          image_url2: data.website_results[1].spaces_dir,
           score2: data.scores[1],
           artist3: data.website_results[2].artist,
           title3: truncate(data.website_results[2].title, 40),
-          image_url3: data.website_results[2].image_url,
+          image_url3: data.website_results[2].spaces_dir,
           score3: data.scores[2]
         });
       } else {
