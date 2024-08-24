@@ -182,34 +182,38 @@ const APIPage: React.FC<APIPageProps> = ({ toggleTheme, theme }) => {
     formData.append('file', imageFile);
 
     setIsLoading(true);
-    try {
-      const response = await fetch(import.meta.env.VITE_API_URL, {
-        method: 'POST',
-        body: formData,
-      });
-      const data = await response.json();
+    if (user) {
+      const token = await user.getIdToken();
 
-      if (data.website_results) {
-        setArtwork({
-          artist: data.website_results[0].artist,
-          title: truncate(data.website_results[0].title, 40),
-          image_url: data.website_results[0].spaces_dir,
-          score: data.scores[0],
-          artist2: data.website_results[1].artist,
-          title2: truncate(data.website_results[1].title, 40),
-          image_url2: data.website_results[1].spaces_dir,
-          score2: data.scores[1],
-          artist3: data.website_results[2].artist,
-          title3: truncate(data.website_results[2].title, 40),
-          image_url3: data.website_results[2].spaces_dir,
-          score3: data.scores[2]
+      try {
+        const response = await fetch(`https://api.artvista.app/artwork_search_for_website/?token=${token}`, {
+          method: 'POST',
+          body: formData,
         });
-      } else {
-        setArtwork({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
+        const data = await response.json();
+
+        if (data.website_results) {
+          setArtwork({
+            artist: data.website_results[0].artist,
+            title: truncate(data.website_results[0].title, 40),
+            image_url: data.website_results[0].spaces_dir,
+            score: data.scores[0],
+            artist2: data.website_results[1].artist,
+            title2: truncate(data.website_results[1].title, 40),
+            image_url2: data.website_results[1].spaces_dir,
+            score2: data.scores[1],
+            artist3: data.website_results[2].artist,
+            title3: truncate(data.website_results[2].title, 40),
+            image_url3: data.website_results[2].spaces_dir,
+            score3: data.scores[2]
+          });
+        } else {
+          setArtwork({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
+        }
+      } catch (error) {
+        console.error('Error fetching artwork details:', error);
+        setErrorMessage('Failed to fetch artwork details');
       }
-    } catch (error) {
-      console.error('Error fetching artwork details:', error);
-      setErrorMessage('Failed to fetch artwork details');
     }
     setIsLoading(false);
   };
