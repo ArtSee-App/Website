@@ -5,6 +5,7 @@ import { FaCamera, FaArrowRight } from 'react-icons/fa'; // Import the camera an
 import image1 from './assets/randomphoto1.jpg'; // Replace with the correct paths for the images
 import image2 from './assets/randomphoto2.jpg';
 import image3 from './assets/randomphoto3.jpg';
+import { useAuth } from '../firebase/AuthContext'; // Adjust the path as necessary
 
 interface APIPageProps {
   toggleTheme: () => void;
@@ -19,6 +20,7 @@ const APIPage: React.FC<APIPageProps> = ({ toggleTheme, theme }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [croppedImages, setCroppedImages] = useState<string[]>([]);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0); // Default to 0, the first image
+  const { user } = useAuth();
 
   const cropImage = (imageSrc: string, bbox: { w: number; h: number; x: number; y: number; }) => {
     return new Promise((resolve, reject) => {
@@ -76,66 +78,69 @@ const APIPage: React.FC<APIPageProps> = ({ toggleTheme, theme }) => {
     const reader = new FileReader();
 
     reader.onload = async (ev: ProgressEvent<FileReader>) => {
-      if (ev.target?.result) {
-        setImage(ev.target.result as string);  // Set the original image
-        const formData = new FormData();
-        formData.append('file', file);  // Append the original file to FormData
+      if (user) {
+        if (ev.target?.result) {
+          setImage(ev.target.result as string);  // Set the original image
+          const formData = new FormData();
+          formData.append('file', file);  // Append the original file to FormData
+          const token = await user.getIdToken();
 
-        try {
-          const bboxResponse = await fetch(import.meta.env.VITE_APIBBOX_URL, {
-            method: 'POST',
-            body: formData,
-          });
-          const bboxes = await bboxResponse.json();
-
-          if (bboxes.length > 0) {
-            const crops = await Promise.all(bboxes.map((bbox: { bbox: { w: number; h: number; x: number; y: number; }; }) => cropImage(ev.target?.result as string, bbox.bbox)));
-            setCroppedImages(crops);
-
-            // Convert the first cropped image data URL to a Blob for uploading
-            const firstCropBlob = await fetch(crops[0]).then(r => r.blob());
-            const croppedFile = new File([firstCropBlob], 'croppedImage.jpg', { type: 'image/jpeg' });
-
-            // Clear the FormData and append the cropped image file
-            formData.delete('file');
-            formData.append('file', croppedFile);
-          } else {
-            // No bounding boxes, use the original image
-            setCroppedImages([ev.target.result as string]);
-          }
-
-          // Fetch artwork details using either the cropped image or the original image
-          const artResponse = await fetch(import.meta.env.VITE_API_URL, {
-            method: 'POST',
-            body: formData,
-          });
-          const data = await artResponse.json();
-          console.log(data.website_results)
-          if (data.website_results) {
-            setArtwork({
-              artist: data.website_results[0].artist,
-              title: truncate(data.website_results[0].title, 40),
-              image_url: data.website_results[0].spaces_dir,
-              score: data.scores[0],
-              artist2: data.website_results[1].artist,
-              title2: truncate(data.website_results[1].title, 40),
-              image_url2: data.website_results[1].spaces_dir,
-              score2: data.scores[1],
-              artist3: data.website_results[2].artist,
-              title3: truncate(data.website_results[2].title, 40),
-              image_url3: data.website_results[2].spaces_dir,
-              score3: data.scores[2]
+          try {
+            const bboxResponse = await fetch(`https://api.artvista.app/get_bbox_for_website/?token=${token}`, {
+              method: 'POST',
+              body: formData,
             });
-          } else {
-            setArtwork({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
+            const bboxes = await bboxResponse.json();
+
+            if (bboxes.length > 0) {
+              const crops = await Promise.all(bboxes.map((bbox: { bbox: { w: number; h: number; x: number; y: number; }; }) => cropImage(ev.target?.result as string, bbox.bbox)));
+              setCroppedImages(crops);
+
+              // Convert the first cropped image data URL to a Blob for uploading
+              const firstCropBlob = await fetch(crops[0]).then(r => r.blob());
+              const croppedFile = new File([firstCropBlob], 'croppedImage.jpg', { type: 'image/jpeg' });
+
+              // Clear the FormData and append the cropped image file
+              formData.delete('file');
+              formData.append('file', croppedFile);
+            } else {
+              // No bounding boxes, use the original image
+              setCroppedImages([ev.target.result as string]);
+            }
+
+            // Fetch artwork details using either the cropped image or the original image
+            const artResponse = await fetch(`https://api.artvista.app/artwork_search_for_website/?token=${token}`, {
+              method: 'POST',
+              body: formData,
+            });
+            const data = await artResponse.json();
+            console.log(data.website_results)
+            if (data.website_results) {
+              setArtwork({
+                artist: data.website_results[0].artist,
+                title: truncate(data.website_results[0].title, 40),
+                image_url: data.website_results[0].spaces_dir,
+                score: data.scores[0],
+                artist2: data.website_results[1].artist,
+                title2: truncate(data.website_results[1].title, 40),
+                image_url2: data.website_results[1].spaces_dir,
+                score2: data.scores[1],
+                artist3: data.website_results[2].artist,
+                title3: truncate(data.website_results[2].title, 40),
+                image_url3: data.website_results[2].spaces_dir,
+                score3: data.scores[2]
+              });
+            } else {
+              setArtwork({ artist: '', title: '', image_url: '', score: '', artist2: '', title2: '', image_url2: '', score2: '', artist3: '', title3: '', image_url3: '', score3: '' });
+            }
+            setIsLoading(false);
+          } catch (error) {
+            console.error('Error processing image:', error);
+            setErrorMessage('Invalid file type. Please upload an image (JPG or PNG).');
+            setImage(null);
+            setIsLoading(false);
+            setCroppedImages([]);
           }
-          setIsLoading(false);
-        } catch (error) {
-          console.error('Error processing image:', error);
-          setErrorMessage('Invalid file type. Please upload an image (JPG or PNG).');
-          setImage(null);
-          setIsLoading(false);
-          setCroppedImages([]);
         }
       }
     };

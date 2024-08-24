@@ -8,6 +8,7 @@ import APIPage from './ApplicationProgrammingInterface.tsx'; // Import the new A
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { AuthProvider } from '../firebase/AuthContext';
 
 function App() {
 
@@ -63,7 +64,7 @@ function App() {
 
 
   return (
-    <>
+    <AuthProvider>
       <Routes>
         <Route path="/" element={
           <>
@@ -77,7 +78,7 @@ function App() {
         } />
         <Route path="/api" element={<APIPage toggleTheme={toggleTheme} theme={theme} />} />
       </Routes>
-    </>
+    </AuthProvider>
   );
 }
 
