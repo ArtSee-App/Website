@@ -17,9 +17,7 @@ body,
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  /* Prevents horizontal scroll */
+  min-height: 100vh;
 }
 
 /* Ensure full width and more control */
@@ -31,6 +29,12 @@ body {
   font-family: Arial, sans-serif;
   background-color: var(--background);
   /* Uses the --background variable */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 /* Additional global styles */
