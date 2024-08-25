@@ -7,6 +7,12 @@
   color: var(--text);
   border-bottom: 2px solid var(--secondary);
   width: 100%;
+  position: fixed;
+  /* Make the header fixed */
+  top: 0;
+  /* Position the header at the top of the viewport */
+  z-index: 1000;
+
   /* Ensure the header spans the full width */
 }
 

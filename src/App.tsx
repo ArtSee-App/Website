@@ -34,7 +34,11 @@ function App() {
 
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    const yOffset = -50; // Adjust this value to set the desired offset (e.g., -20px above the element)
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   };
 
   interface Theme {

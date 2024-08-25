@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './HeaderAPI';
 import styles from './ApplicationProgrammingInterface.module.css';
 import { FaCamera, FaArrowRight } from 'react-icons/fa'; // Import the camera and arrow icons
@@ -38,6 +38,10 @@ const APIPage: React.FC<APIPageProps> = ({ toggleTheme, theme }) => {
     });
   };
 
+  useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   const truncate = (input: string, maxLength: number) => {
     if (input.length > maxLength) {
