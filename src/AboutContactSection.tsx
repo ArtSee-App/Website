@@ -49,7 +49,7 @@ const AboutContactSection: React.FC = () => {
             <div className={styles.teamImagesContainer}>
                 <div className={styles.teamImageContainer}>
                     <div className={styles.teamImage}>
-                        <img src={profile} alt="Team Member 1" />
+                        <img src={'https://media.licdn.com/dms/image/v2/D4D03AQEOp3p2bLxnRg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727898010927?e=1733356800&v=beta&t=N3xaWz7q7_lHh1dxVZrqYnDmOgrjNd8c5zsS_YkUcxo'} alt="Team Member 1" />
                     </div>
                     <p className={`${styles.teamText} ${styles.yellowText} ${styles.bigText}`}>Vlad Stoenescu</p>
                     <p className={`${styles.teamText} ${styles.bigText}`}>Front-End Lead</p>
@@ -59,7 +59,7 @@ const AboutContactSection: React.FC = () => {
                 </div>
                 <div className={styles.teamImageContainer}>
                     <div className={styles.teamImage}>
-                        <img src={profile} alt="Team Member 2" />
+                        <img src={'https://media.licdn.com/dms/image/v2/D4E03AQGooCahkMTYLQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1719588188880?e=1733356800&v=beta&t=OgKUnerzO3qG65LdMeIpAobs4UsXNVJtGbPkPcpW5Lc'} alt="Team Member 2" />
                     </div>
                     <p className={`${styles.teamText} ${styles.yellowText} ${styles.bigText}`}>Tunahan Sari</p>
                     <p className={`${styles.teamText} ${styles.bigText}`}>AI & ML Lead</p>
@@ -70,7 +70,7 @@ const AboutContactSection: React.FC = () => {
                 </div>
                 <div className={styles.teamImageContainer}>
                     <div className={styles.teamImage}>
-                        <img src={profile} alt="Team Member 3" />
+                        <img src={'https://media.licdn.com/dms/image/v2/D4D03AQHi62-rQtPADw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1714660482842?e=1733356800&v=beta&t=zhp9-XEbhyhCkO68eN4t5QGooc65gJKjiQEr1Dbpbq8'} alt="Team Member 3" />
                     </div>
                     <p className={`${styles.teamText} ${styles.yellowText} ${styles.bigText}`}>Taylan Ozgur Aygun</p>
                     <p className={`${styles.teamText} ${styles.bigText}`}>Business Lead</p>

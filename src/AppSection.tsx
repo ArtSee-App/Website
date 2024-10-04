@@ -29,7 +29,12 @@ const AppSection: React.FC = () => {
                     </div>
                     <div className={styles.platform}>
                         <img src={iosLogo} alt="iOS" className={styles.platformLogo} />
-                        <button className={styles.soonButton}>Soon for iOS</button>
+                        <button
+                            className={styles.soonButton}
+                            onClick={() => window.open("https://apps.apple.com/nl/app/artvista-museum-companion/id6503986684?l=en-GB", "_blank")}
+                        >
+                            iOS
+                        </button>
                     </div>
                 </div>
             </div>
