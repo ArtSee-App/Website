@@ -9,6 +9,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { AuthProvider } from '../firebase/AuthContext';
+import Footer from './Footer.tsx'; // Add this import
 
 function App() {
 
@@ -78,9 +79,15 @@ function App() {
             <RoadmapSection />
             <UpdatesSection />
             <AboutSection />
+            <Footer />
           </>
         } />
-        <Route path="/api" element={<APIPage toggleTheme={toggleTheme} theme={theme} />} />
+        <Route path="/api" element={
+          <>
+            <APIPage toggleTheme={toggleTheme} theme={theme} />
+            <Footer />
+          </>
+        } />
       </Routes>
     </AuthProvider>
   );
