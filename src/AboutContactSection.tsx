@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './AboutContactSection.module.css';
 import about from './assets/about2.png'; // Import the image
-import profile from './assets/profile.png'; // Import the image
 import emailjs from 'emailjs-com';
 
 const AboutContactSection: React.FC = () => {
