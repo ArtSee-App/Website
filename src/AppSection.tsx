@@ -25,7 +25,12 @@ const AppSection: React.FC = () => {
                 <div className={styles.rightContent}>
                     <div className={styles.platform}>
                         <img src={androidLogo} alt="Android" className={styles.platformLogo} />
-                        <button className={styles.soonButton}>Soon for Android</button>
+                        <button
+                            className={styles.soonButton}
+                            onClick={() => window.open("https://play.google.com/store/apps/details?id=com.artvista&hl=en", "_blank")}
+                        >
+                            Available on Android
+                        </button>
                     </div>
                     <div className={styles.platform}>
                         <img src={iosLogo} alt="iOS" className={styles.platformLogo} />
@@ -33,7 +38,7 @@ const AppSection: React.FC = () => {
                             className={styles.soonButton}
                             onClick={() => window.open("https://apps.apple.com/nl/app/artvista-museum-companion/id6503986684?l=en-GB", "_blank")}
                         >
-                            iOS
+                            Available on iOS
                         </button>
                     </div>
                 </div>
