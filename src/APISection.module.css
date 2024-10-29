@@ -24,6 +24,7 @@
     align-items: flex-start;
     justify-content: center;
     flex: 1;
+    gap: 20px;
     padding: 20px;
 }
 
@@ -40,6 +41,7 @@
     /* Adjust size as needed */
     height: 70%;
     border-radius: 10%/20%;
+    object-fit: cover;
 }
 
 .apiImage2 {
@@ -47,6 +49,8 @@
     /* Adjust size as needed */
     height: 70%;
     border-radius: 10%;
+    object-fit: cover;
+
 }
 
 
@@ -58,7 +62,6 @@
 
 
 .textComponent {
-    margin-bottom: 20px;
     color: var(--text);
     font-size: 1.2rem;
 }
@@ -66,6 +69,7 @@
 .textLarge {
     font-size: 2rem;
     font-weight: bold;
+    margin-bottom: 20px;
     /* Larger text size */
 }
 
@@ -81,13 +85,25 @@
 
 
 
+.linkStyle {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--accent);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    width: fit-content;
+    margin-top: 10px;
+}
+
 .linkStyle:hover {
-    text-decoration: underline;
-    /* Ensures the underline appears on hover */
-    text-decoration-color: white;
-    /* Changes the underline color to white */
-    text-decoration-thickness: 2px;
-    /* Makes the underline thicker */
+    background-color: var(--secondary);
+    transform: scale(1.05);
 }
 
 .textMargin {
@@ -135,6 +151,7 @@
 
     .leftContent {
         padding: 0px;
+        margin-bottom: 20px;
     }
 
     .apiImage,
